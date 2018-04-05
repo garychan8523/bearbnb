@@ -1,0 +1,185 @@
+%carouselContainer {
+  width: 1028px;
+  margin: 40px 0;
+  position: relative;
+  @include media("<bigdesktop") {
+    width: 80%;
+  }
+}
+
+.carouselContainer--a {
+  @extend %carouselContainer;
+  
+}
+
+.carouselContainer--b {
+  @extend %carouselContainer;
+  @include media("<bigdesktop") {
+    width: 89%;
+  }
+}
+
+.carouselBanner {
+  display: flex;
+  justify-content: space-between;
+  line-height: 32px;
+}
+
+.carouselBanner_title {
+  color: #484848;
+  font-size: 28px;
+  letter-spacing: -0.6px;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 2px 0;
+}
+
+.carouselBanner_title--b {
+  margin-bottom: 24px;
+}
+
+.carouselBanner_link {
+  display: inline;
+}
+
+.carouselBanner_link--button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  padding-left: 10px;
+  vertical-align: bottom;
+}
+
+.carouselBanner_link--span {
+  font-size: 14px;
+  text-align: center;
+  line-height: 18px;
+  margin-right: 6px;
+}
+
+.carouselBanner_link--arrow {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  height: 10px;
+  width: 10px;
+}
+
+.carouselMask {
+  overflow: hidden;
+  margin: 0 -8px;
+  @include media("<tablet") {
+    overflow-x: scroll;
+    position: relative;
+    left: -10vw;
+    width: 100vw;
+  }
+}
+
+.carouselMask::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  display: inline-flex;
+  transition-duration: 0.5s;
+  // :first-child {
+  //   padding-left: 0;
+  // }
+  @include media("<tablet") {
+    position: relative;
+    left: 10vw;
+    touch-action: pan-x;
+  }
+}
+
+.navDiv {
+  position: absolute;
+  display: block;
+  z-index: z("default");
+  top: 52%;
+  transform: translateY(-50%);
+  @include media("<tablet") {
+    display: none;
+  }
+}
+
+.navDiv--b {
+  top: 70%;
+}
+
+.navDiv--left {
+  left: -24px;
+}
+
+.navDiv--right {
+  right: -24px;
+}
+
+.navDiv__span {
+  top: -45px;
+  bottom: auto;
+  position: relative;
+}
+
+.navDiv__button {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.navDiv__button--a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 1;
+  position: relative;
+  border: 2px solid transparent;
+  background: white;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
+  @include media("<bigdesktop") {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+.navDiv__button--b {
+  padding: 0px;
+  background-color: transparent;
+  border: 0px;
+  display: block;
+  margin: 0 -8px;
+}
+
+.navDiv__button--a:active {
+  box-shadow: 0 0 1px 3px rgba(6, 153, 128, 0.637);
+}
+
+.navDiv__button:focus {
+  outline: none;
+}
+
+.navDiv__svg {
+  fill: none;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  height: 20px;
+  width: 20px;
+  margin-top: 2px;
+  @include media("<bigdesktop") {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.navDiv__svg--a {
+  stroke: #484848;
+}
+
+.navDiv__svg--b {
+  stroke: #767676;
+}
+
+.hidden {
+  display: none;
+}

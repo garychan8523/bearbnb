@@ -1,0 +1,47 @@
+.navbar-dd-menu {
+  position: absolute;
+  top: 155px;
+  width: 100%;
+  background-color: color-list("text-light");
+  box-shadow: 0px 0px 3px lighten(color-list("text-dark"), 50%);
+  z-index: z("dropdown");
+
+  @include media (">phone") {
+    width: 60%;
+    right: 10px;
+    top: 85px;
+  }
+  @include media (">tablet") {
+    right: 10rem;
+    width: 350px;
+  }
+}
+
+.navbar-dd-menu-list {
+  list-style: none;
+}
+
+.navbar-dd-menu-item {
+  padding: 1rem 0rem;
+  margin: 0rem 2rem;
+  border-bottom: 1px solid lighten(color-list("text-dark"), 70%);
+  &:hover {
+    border-bottom: 1px solid color-list("accent");
+  }
+}
+
+.navbar-dd-menu-item > a {
+  text-decoration: none;
+  color: color-list("text-dark");
+}
+
+.navbar-dd-menu-title {
+  padding: 0.5rem 0rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navbar-dd-menu-subtitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+}

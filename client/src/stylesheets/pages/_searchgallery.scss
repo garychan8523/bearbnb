@@ -1,0 +1,129 @@
+.search-gallery {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 100px;
+}
+
+.search-gallery-header {
+  position: fixed;
+  top: 99px;
+  width: 100%;
+  z-index: z("modal");
+}
+
+.search-gallery-body {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 66px;
+  @include media("<=bigdesktop") {
+    .listing-c {
+      width: 48%;
+      padding: 0 1%;
+    }
+    .listing__image--position-c {
+      height: calc(20vw);
+    }
+    .listing__image-c {
+      height: calc(20vw);
+    }
+  }
+  @include media("<=desktop") {
+    .listing-c {
+      width: 48%;
+      padding: 0 1%;
+    }
+    .listing__image--position-c {
+      height: calc(30vw);
+    }
+    .listing__image-c {
+      height: calc(30vw);
+    }
+  }
+  @include media("<=tablet") {
+    .listing-c {
+      width: 100%;
+      padding: 0;
+    }
+    .listing__image--position-c {
+      height: calc(60vw);
+    }
+    .listing__image-c {
+      height: calc(60vw);
+    }
+  }
+}
+
+.search-gallery-results {
+  width: 65%;
+  padding: 16px;
+  padding-top: 20px;
+  @include media ("<=desktop") {
+    width: 100%;
+  }
+}
+
+.search-gallery-disclaimer {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: color-list("text-muted");
+  margin: 16px 0;
+}
+
+.search-gallery-map {
+  width: 35%;
+  height: calc(100vh - 165px);
+  background-color: white;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  @include media("<=desktop") {
+    display: none;
+  }
+}
+
+.search-gallery-map__option {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  z-index: 2;
+  background-color: white;
+  border-radius: 3px;
+  height: 36px;
+  padding: 0 8px 0 12px;
+}
+
+.search-gallery-map__option--content {
+  padding: 9px 0;
+  font-size: 12px;
+}
+
+.search-gallery-map__option--checkbox {
+  margin: 0 12px 0 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid gray;
+}
+
+.search-gallery-map__option--label {
+  position: relative;
+  top: -4px;
+}
+
+.search-gallery-footer {
+  width: 100%;
+  padding-top: 16px;
+  border-top: 1px solid #d9d9d9;
+  font-size: 14px;
+}
+
+.crumb:link {
+  color: color-list("text-dark");
+  text-decoration: none;
+}
+
+.crumb:hover {
+  text-decoration: underline;
+}

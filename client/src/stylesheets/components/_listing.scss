@@ -1,0 +1,273 @@
+.listing {
+  width: 333px;
+  border: 0 solid black;
+  padding: 0 8px;
+  font-weight: 500;
+  box-sizing: content-box;
+  @include media("<bigdesktop") {
+    width: auto;
+  }
+}
+
+.listing-c {
+  width: 31.5%;
+  margin-bottom: 20px;
+}
+
+.listing-d {
+  width: 280px;
+  padding: 0;
+}
+
+.listing:before,
+.listing:after {
+  box-sizing: content-box;
+}
+
+.listing__anchor {
+  text-decoration: none;
+  color: #484848;
+  display: flex;
+  //justify-content: center;
+  overflow: hidden;
+}
+
+.listing__anchor-c {
+  height: calc(130px + 6vw);
+  width: 65%;
+  left: 20%;
+  position: absolute;
+  font-size: 0;
+}
+
+.listing__image {
+  border-radius: 3px;
+  display: block;
+  width: 333px;
+  height: 222px;
+  object-fit: cover;
+  @include media("<bigdesktop") {
+    height: calc(20vw);
+    width: calc(25.5vw);
+  }
+  @include media("<desktop") {
+    height: calc(30vw);
+    width: calc(39vw);
+  }
+  @include media("<tablet") {
+    height: calc(40vw);
+    width: calc(50vw);
+  }
+}
+
+.listing__image-c {
+  width: 100%;
+  height: calc(130px + 6vw);
+  background-position: center;
+}
+
+.listing__image-d {
+  height: 100%;
+  width: 100%;
+  animation: fadein 0.3s ease-in-out;
+}
+
+.listing__image--position {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.listing__image--position-c {
+  position: relative;
+  height: calc(130px + 6vw);
+}
+
+.listing__image--position-d {
+  height: 186px;
+}
+
+.listing__text {
+  padding-top: 8px;
+}
+
+.listing__text--d {
+  margin-top: -3px;
+  padding: 12px;
+  font-family: "montserrat";
+}
+
+.listing__text--descriptor {
+  font-size: 0.77rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  line-height: 20px;
+}
+
+.listing__text--title {
+  margin-top: 2px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 22px;
+}
+
+.listing__text--rate {
+  margin-top: 2px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+}
+
+.listing__text--reviews {
+  margin-top: 2px;
+  @include media("<=tablet") {
+    margin-top: -2px;
+  }
+}
+
+.popupListing {
+  position: absolute;
+  visibility: hidden;
+}
+
+.heart {
+  position: absolute;
+  z-index: 2;
+  height: 1.6rem;
+  width: 1.6rem;
+  right: 1em;
+  top: 0.9em;
+}
+
+.heart--svg1 {
+  fill: #4d4d4d;
+  opacity: 0.8;
+}
+
+.heart--svg2 {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+}
+
+.imgCarouselControls {
+  position: absolute;
+  z-index: z("default");
+  opacity: 0;
+  height: inherit;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 0) 75%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
+.imgCarouselControls-b {
+  opacity: 1;
+}
+
+.imgCarouselControls:hover {
+  opacity: 1;
+}
+
+.slideshowArrow,
+.slideshowArrow:focus:not(:active) {
+  position: absolute;
+  z-index: z("default");
+  top: 50%;
+  height: 100%;
+  width: 25%;
+  padding: 0;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: 0px;
+  stroke: white;
+}
+
+.slideshowArrow:focus {
+  outline: none;
+}
+
+.slideshowArrow--svg {
+  position: relative;
+  fill: none;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  height: 28px;
+  width: 28px;
+  margin-top: 2px;
+  pointer-events: none;
+}
+
+.slideshowArrow--left {
+  left: 0;
+}
+
+.slideshowArrow--right {
+  right: 0;
+}
+
+.slideshowArrow--left > svg {
+  left: -10%;
+}
+
+.slideshowArrow--right > svg {
+  right: -10%;
+}
+
+.slideMask {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  display: flex;
+  width: 200%;
+}
+
+.slider > img {
+  width: 50%;
+}
+
+.sliderLeft {
+  animation: slideLeft 0.2s 1;
+}
+
+.sliderRight {
+  animation: slideRight 0.2s 1;
+  transform: translateX(-50%);
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,14 @@
+export const FETCH_USER = "fetch_user";
+export const UPDATE_USER = "update_user";
+export const FETCH_PROFILE = "fetch_profile";
+export const NEW_REVIEW = "new_review";
+export const FETCH_REVIEW = "fetch_review";
+export const FETCH_HOME = "fetch_home";
+export const NEW_HOME = "new_home";
+export const UPDATE_HOME = "update_home";
+export const FETCH_ALL_HOMES = "fetch_all_homes";
+export const FETCH_ALL_USERS = "fetch_all_users";
+export const FETCH_ALL_REVIEWS = "fetch_all_reviews";
+export const NEW_REFERENCE = "new_reference";
+export const FETCH_REFERENCE = "fetch_reference";
+export const FETCH_ALL_REFERENCES = "fetch_all_references";

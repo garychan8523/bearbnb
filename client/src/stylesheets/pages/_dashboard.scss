@@ -1,0 +1,141 @@
+.dashboard {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  @include media("<=desktop") {
+    flex-direction: column;
+  }
+}
+
+.dashboard-left {
+  flex: 0 0 30%;
+
+  > h4 {
+    margin: 1rem 0;
+    &:hover {
+      color: color-list("text-muted");
+      cursor: pointer;
+    }
+
+    > a {
+      text-decoration: none;
+      color: color-list("text-dark");
+
+      &:hover {
+        color: color-list("text-muted");
+      }
+    }
+  }
+}
+
+.dashboard-right {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 70%;
+}
+
+.change-photo {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+
+  > h2 {
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    font-weight: 500;
+    border-bottom: 1px solid lightgrey;
+  }
+}
+
+.change-photo-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.change-photo-image-set {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    height: 200px;
+    width: 200px;
+    margin: 20px 5px;
+  }
+}
+
+.input-wrapper {
+  cursor: pointer;
+}
+
+.input-wrapper input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  -moz-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  cursor: pointer;
+}
+
+.input-wrapper input[type="radio"] + label {
+  position: relative;
+  padding: 0 0 0 25px;
+  font-size: 16px;
+  line-height: 25px;
+  margin: 0 0 10px 0;
+  cursor: pointer;
+}
+
+.input-wrapper input[type="radio"] + label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  height: 14px;
+  width: 14px;
+  background: white;
+  border: 1px solid gray;
+  box-shadow: inset 0px 0px 0px 2px white;
+  -webkit-box-shadow: inset 0px 0px 0px 2px white;
+  -moz-box-shadow: inset 0px 0px 0px 2px white;
+  -o-box-shadow: inset 0px 0px 0px 2px white;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  cursor: pointer;
+}
+
+.input-wrapper input[type="radio"]:checked + label:before {
+  background: color-list("primary");
+  cursor: pointer;
+}
+
+.add-review-form {
+  display: flex;
+  flex-direction: column;
+
+  > input {
+    margin: 0.5rem 0;
+  }
+}
+
+.add-reference-form {
+  display: flex;
+  flex-direction: column;
+
+  > input {
+    margin: 0.5rem 0;
+  }
+}
+
+.bed-select {
+  width: 20%;
+}

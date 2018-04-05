@@ -1,0 +1,16 @@
+.icon-item {
+  padding-bottom: 1.2rem;
+}
+
+.icon-item > span > i {
+  padding: 0 1.2rem 0 0;
+}
+
+.bold-icon-name {
+  font-weight: 500;
+}
+
+.crossout-icon-name {
+  color: lighten(color-list("text-dark"), 30%);
+  text-decoration: line-through;
+}

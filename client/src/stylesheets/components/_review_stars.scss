@@ -1,0 +1,36 @@
+.reviewStars {
+  height: 10px;
+  width: 200px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  line-height: 20px;
+}
+
+.stars {
+  display: inline;
+  margin-right: 2px;
+}
+
+.stars__starContainer {
+  margin-right: 1px;
+}
+
+.stars__star {
+  height: 9px;
+  width: 9px;
+}
+
+.stars__star--full,
+.stars__star--halfB {
+  fill: #227b7f;
+}
+
+.stars__star--empty,
+.stars__star--halfA {
+  fill: #d8d8d8;
+}
+
+.large-stars {
+  display: flex;
+}

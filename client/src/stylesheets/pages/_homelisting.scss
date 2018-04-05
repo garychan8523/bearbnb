@@ -1,0 +1,155 @@
+.homelisting {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //overflow: visible;
+}
+
+.homelisting-body {
+  @extend .homelisting;
+  padding: 0 5%;
+}
+
+.homenav {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  z-index: z('dropdown');
+  
+  border-bottom: 1px solid color-list('text-muted');
+
+  > a {
+    margin-right: 1rem;
+    color: color-list("accent");
+    font-weight: 500;
+    text-decoration: none;
+
+    @include hocus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.homelisting-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  //padding: 3rem 1rem 0 1rem;
+  //max-width: 1032px;
+  width: 100%;
+  margin: 0 auto;
+  @include media(">desktop") {
+    flex-wrap: nowrap;
+    padding: 3rem 0 0 0;
+  }
+}
+
+.homelisting-left {
+  flex: 0 1 100%;
+  @include media(">desktop") {
+    flex: 0 1 60%;
+  }
+}
+
+.homelisting-right {
+  width: 100%;
+  @include media(">desktop") {
+    flex: 1 0 30%;
+  }
+}
+
+.home-listing-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //max-width: 1132px;
+  //padding: 3rem 1rem 0 1rem;
+  //margin: 0 auto;
+  width: 100%;
+  @include media(">desktop") {
+    flex-wrap: nowrap;
+    margin-left: -5%;
+  }
+}
+
+.review-list-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include media(">phone") {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    margin-right: 1rem;
+  }
+
+  i {
+    color: color-list("accent");
+  }
+}
+
+.review-list-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+
+  .review-list-bullet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media(">phone") {
+      flex-shrink: 1;
+    }
+
+    @include media(">tablet") {
+      width: 43%;
+    }
+
+    span {
+      text-align: right;
+
+      i {
+        color: color-list("accent");
+      }
+    }
+  }
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.8rem;
+  a {
+  }
+
+  a > img {
+    background-color: #333;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+
+  span > div:first-child {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
+
+.review-content {
+  margin: 0 0 2rem 0;
+}

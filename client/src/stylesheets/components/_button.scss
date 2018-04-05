@@ -1,0 +1,72 @@
+.grey-outline {
+  margin: 1rem;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid lighten(color-list("text-dark"), 50%);
+  border-radius: 6px;
+  outline: none;
+  background-color: color-list("text-light");
+  font-weight: 600;
+  font-size: 0.8em;
+  color: color-list("text-dark");
+  cursor: pointer;
+}
+
+.accent-outline {
+  padding: 0.4rem 1rem;
+  border: 1px solid color-list("accent");
+  width: 150px;
+  border-radius: 4px;
+  outline: none;
+  background-color: color-list("text-light");
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: color-list("accent");
+  cursor: pointer;
+}
+
+.big-red {
+  padding: 0.4rem 1.5rem;
+  border: 1px solid color-list("primary");
+  border-radius: 4px;
+  outline: none;
+  background-color: color-list("primary");
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: color-list("text-light");
+  cursor: pointer;
+}
+
+.linkbutton {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-weight: 600;
+  color: color-list("accent");
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.padding {
+    padding: 1rem 0;
+    margin: 2rem 0 0 0;
+  }
+}
+
+.btn-yellow {
+  min-width: 30px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: linear-gradient(
+    140deg,
+    mix(color-list("emphasis"), color-list("text-light"), 70%) 50%,
+    color-list("emphasis") 50%,
+    color-list("emphasis") 100%
+  );
+  color: color-list("text-light");
+  font-size: 1.2rem;
+  font-weight: bold;
+}

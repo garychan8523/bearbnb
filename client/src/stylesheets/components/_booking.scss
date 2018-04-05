@@ -1,0 +1,346 @@
+.bookingContainer {
+  width: 400px;
+  border: 1px solid lightgrey;
+  margin: 15px;
+
+  // @include media ("<tablet") {
+  //   position: fixed;
+  //   display: flex;
+  //   justify-content: center;
+  //   width: 100%;
+  //   bottom: -16px;
+  //   right: 0;
+  //   left: -16px;
+  //   border: 0;
+  // }
+
+  .bookingContent {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid lightgrey;
+  }
+
+  .headerPrice {
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    margin: 10px 20px;
+  }
+
+  h2 {
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0px;
+    span {
+      font-size: 1.3em;
+      font-weight: bold;
+
+      margin: 0px 5px;
+    }
+  }
+
+  .reviewCounter {
+    font-size: 0.8em;
+
+    margin: 0px 0px 5px 5px;
+  }
+
+  .bookingInput {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 10px 20px;
+
+    .bookingSection {
+      margin: 15px 0px;
+
+      .guestClose {
+        cursor: pointer;
+        color: #008489;
+        font-size: 1.1em;
+        font-weight: 400;
+        margin-right: 20px;
+        float: right;
+      }
+    }
+    .inputTitle {
+      margin: 0px;
+      font-size: 0.85em;
+    }
+
+    .inputSection {
+      display: flex;
+      justify-content: space-around;
+      cursor: pointer;
+      font-size: 1.2em;
+      width: 359px;
+      border: 1px solid lightgrey;
+      padding: 10px;
+      margin: 0px;
+
+      i {
+        font-size: 1.5em;
+        margin-top: 2px;
+      }
+    }
+
+    .guestAmount {
+      display: block;
+    }
+
+    .toggleTrue {
+      display: block;
+    }
+
+    .toggleTrueFlex {
+      display: flex;
+    }
+
+    .toggleFalse {
+      display: none;
+    }
+
+    .guestNumber {
+      position: absolute;
+      border: 1px solid lightgrey;
+      background-color: white;
+      padding: 10px;
+      margin: 0px;
+      width: 358px;
+
+      .guestMax {
+        font-size: 0.8em;
+        margin: 5px 10px;
+      }
+    }
+
+    .guestCounter {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 10px 0px;
+      margin: 5px 10px;
+      h2 {
+        font-size: 1.2em;
+      }
+
+      .currentNumber {
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+
+      .personCounter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 125px;
+      }
+
+      .counterSymbol {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0px;
+        padding: 0px;
+        width: 30px;
+
+        cursor: pointer;
+        border: 1px solid #008489;
+        color: #008489;
+        border-radius: 50%;
+        box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .counterSymbol:active {
+        box-shadow: 0 0 1px 3px rgba(6, 153, 128, 0.6);
+      }
+    }
+  }
+
+  // .bookingInputTabletLeft {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+
+  .bookRequestContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    padding: 0 10% 0 10%;
+    @include media(">phone") {
+    }
+    @include media(">tablet") {
+      width: 100%;
+    }
+  }
+
+  .bookRequestContainer-2 {
+    width: 100%;
+    text-align: center;
+
+    .bookRequest {
+      width: 90%;
+    }
+  }
+
+  .bookRequest {
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px 5px !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    background-color: #ff5a5f;
+
+    padding: 10px 0px;
+    border: 1px solid #ff5a5f;
+    border-radius: 3px;
+
+    @include media(">phone") {
+      margin: 10px 20px;
+    }
+  }
+
+  .bookingFooter {
+    text-align: center;
+    font-size: 0.7em;
+    font-weight: bold;
+    .feeDiv {
+      display: flex;
+      justify-content: space-between;
+
+      border-bottom: 1px solid lightgrey;
+
+      p {
+        margin: 15px 0px 5px 0px;
+        font-size: 0.9em;
+      }
+    }
+
+    .feeBold {
+      font-weight: bold;
+    }
+  }
+
+  .calendarContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    background-color: white;
+    padding: 10px;
+    width: 358px;
+
+    .calendarHeader {
+      display: flex;
+      font-size: 0.9em;
+      justify-content: space-around;
+      p {
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+        i {
+          padding: 7px 10px;
+          margin: 0px;
+          font-size: 1.3em;
+          background-color: white;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
+        }
+      }
+
+      i:hover {
+        background-color: #f2f2f2;
+      }
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+      display: block;
+      margin: 5px auto;
+    }
+
+    th {
+      font-size: 0.8em;
+      font-weight: bold;
+      padding: 8px;
+    }
+
+    td {
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 400;
+      padding: 7px 10px;
+      margin: 0px;
+      text-align: center;
+      border: 1px solid lightgrey;
+      background-color: white;
+    }
+
+    td:hover {
+      background-color: lightgrey;
+    }
+
+    .calendarFiller {
+      cursor: context-menu;
+      border: none;
+    }
+
+    .calendarFiller:hover {
+      background-color: white;
+    }
+
+    .checked,
+    .checked:hover {
+      background-color: #008489;
+      color: white;
+    }
+
+    .checkedBetween,
+    .checkedBetween:hover {
+      background-color: #66e2da;
+      color: #008489;
+      border: 1px double #33dacd;
+    }
+
+    .checkedRemoved,
+    .checkedRemoved:hover {
+      color: lightgrey;
+      text-decoration: line-through;
+      background-color: white;
+    }
+  }
+
+  .bookedCostTotal {
+    width:100%;
+    font-size: .9em;
+
+    .bookedCostContainer {
+      display:flex;
+      justify-content:space-between;
+      margin: 5px 0px;
+      border-bottom:1px solid lightgrey;
+
+      p {
+        margin:5px 10px;
+      }
+    }
+
+    .boldCost {
+      font-weight:bold;
+    }
+  }
+}

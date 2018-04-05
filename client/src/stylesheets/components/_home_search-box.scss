@@ -1,0 +1,112 @@
+.searchboxContainer {
+  height: calc(100vh - 100px);
+  padding-top: 0;
+  width: 80%;
+  max-width: 1032px;
+
+  @include media (">=phone") {
+  }
+  @include media (">tablet") {
+    padding-top: 10vh;
+  }
+}
+
+.searchbox {
+  padding: 0 12px;
+  padding-bottom: 8px;
+  @include media (">phone") {
+    padding: 38px 12px;
+  }
+  @include media (">tablet") {
+    padding: 48px 24px;
+  }
+}
+
+.searchbox-banner-container {
+  max-width: 80%;
+}
+
+.searchbox-banner {
+  color: color-list("primary");
+  margin-top: 64px;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  @include media(">phone") {
+    font-size: 44px;
+    line-height: 55px;
+  }
+  @include media(">tablet") {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
+
+.searchbox-banner__subtitle {
+  color: lighten(color-list("text-dark"), 3%);
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  @include media(">phone") {
+    font-size: 44px;
+    line-height: 55px;
+  }
+  @include media(">tablet") {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
+
+.searchbox-search {
+  height: 72px;
+}
+
+.searchbox-search-form {
+  position: relative;
+}
+
+.searchbox-search__magnifying {
+  fill: none;
+  stroke: lighten(color-list("text-dark"), 20%);
+  stroke-miterlimit: 10;
+  stroke-width: 1.25;
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.searchbox-search__input {
+  padding-left: 60px;
+  margin: 2rem 0rem;
+  height: 72px;
+  padding-left: 60px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  color: color-list("text-dark");
+  font-size: 18px;
+  font-family: "montserrat";
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  box-shadow: 0 0 8px 4px rgba(71, 71, 71, 0.05);
+  width: 100%;
+  line-height: 2;
+  outline: none;
+}
+
+.searchbox-search__button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 35%;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 3px;
+  background-color: color-list("primary");
+  color: white;
+  font-weight: 600;
+}

@@ -1,0 +1,81 @@
+.home-overview-title > h1 {
+  margin: 0;
+}
+
+.home-overview-subtitle {
+  display: flex;
+  color: lighten(color-list("text-dark"), 30%);
+}
+
+.home-overview-iconpreview {
+  padding: 1.5rem 0;
+
+  > i {
+    padding-right: 0.5rem;
+  }
+}
+
+.home-overview-iconpreview-item {
+  padding-right: 1rem;
+}
+
+.home-overview-safety {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-overview-safety-item {
+  flex: 1 0 50%;
+  padding: 0 0 0.5rem 0;
+}
+
+.home-overview-pricing-disclaimer {
+  padding: 1rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+.home-overview-amenities {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-overview-amenities-left {
+  flex: 1 0 50%;
+}
+
+.home-overview-amenities-right {
+  flex: 1 0 50%;
+}
+
+.home-overview-sleeping {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-overview-sleeping-item {
+  padding: 0 2rem 2rem 0;
+}
+
+.home-overview-sleeping-title {
+  font-weight: 500;
+}
+
+.divider {
+  margin: 1rem 0;
+  border-bottom: 1px solid lighten(color-list("text-dark"), 50%);
+}
+
+.small-divider {
+  margin: 1rem 0;
+  width: 20%;
+  border-bottom: 1px solid lighten(color-list("text-dark"), 50%);
+}
+
+.crossout {
+  color: lighten(color-list("text-dark"), 30%);
+  text-decoration: line-through;
+}
+
+.bold-text {
+  font-weight: 600;
+}

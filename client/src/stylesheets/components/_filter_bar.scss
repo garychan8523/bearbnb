@@ -1,0 +1,426 @@
+// Filter bar for search gallery
+//
+.filter-bar {
+  display: flex;
+  width: 100%;
+  background-color: color-list("text-light");
+  border-bottom: 1px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  padding: 15px 25px;
+  &.filter-bar button {
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 0 6px;
+    transition: 0.2s;
+  }
+}
+
+.filter-btn {
+  background-color: color-list("text-light");
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+
+  &:hover,
+  :active {
+    background-color: #dbdbdb;
+    outline: none;
+  }
+  &:focus {
+    background-color: color-list("accent");
+    border: 1px solid color-list("accent");
+    color: color-list("text-light");
+    outline: none;
+  }
+}
+
+.filter-btn-active {
+  background-color: color-list("accent");
+  border: 1px solid color-list("accent");
+  border-radius: 6px;
+  color: color-list("text-light");
+  &:hover,
+  :active {
+    background-color: darken(color-list("accent"), 10%);
+  }
+  &:focus {
+    background-color: color-list("accent");
+  }
+}
+
+.filter-btn-mobile-hide {
+  display: none;
+  @include media(">tablet") {
+    display: block;
+  }
+}
+
+.filter_checkbox {
+  background-color: color-list("text-light");
+  border: 1px solid color-list("text-muted");
+}
+
+.filter-overlay {
+  position: absolute;
+  background: rgba(250, 250, 250, 0.6);
+  transition: 0.2s;
+  height: 2000px;
+  width: 100%;
+}
+
+.filter-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-pseudo-parent {
+  position: relative;
+}
+
+.filter-container {
+  position: absolute;
+  z-index: 6;
+  top: 8px;
+  left: 5px;
+  background: color-list("text-light");
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  box-shadow: 0 14px 36px 2px rgba(0, 0, 0, 0.15);
+  padding: 25px 25px 15px 25px;
+  width: 400px;
+}
+
+.filter-mobile-collapse {
+  display: none;
+}
+
+//---------Specific Components in filter bar--------
+//
+
+//----------Dates----------
+//-------------------------
+
+.dates-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid #dbdbdb;
+  width: auto;
+}
+
+.calender-header {
+  display: block;
+  text-align: center;
+  line-height: 33px;
+  width: 100%;
+}
+
+.calender-arrow-left {
+  background-color: color-list("text-light");
+  border: 1px solid #dbdbdb;
+  color: color-list("text-muted");
+  border-radius: 6px;
+  margin: 0 !important;
+  float: left;
+  &:hover {
+    border: 1px solid darken(#dbdbdb, 10%);
+  }
+}
+
+.calender-arrow-right {
+  background-color: color-list("text-light");
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  color: color-list("text-muted");
+  float: right;
+  margin: 0 !important;
+  &:hover {
+    border: 1px solid darken(#dbdbdb, 10%);
+  }
+}
+
+.calender-body {
+  margin-bottom: 20px;
+}
+
+.calender-axis {
+  display: flex;
+  margin: 10px 0;
+}
+
+.calender-week {
+  display: flex;
+  &:nth-last-child(1) {
+    .calender-day {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 1px solid #dbdbdb;
+    }
+  }
+  &:nth-last-child(2) {
+    .calender-day {
+      border-bottom: 1px solid #dbdbdb;
+    }
+    .calender-day-active {
+      border-bottom: 1px solid lighten(color-list("accent"), 10%);
+    }
+    .calender-day-endpoint {
+      border-bottom: 1px solid color-list("accent");
+    }
+  }
+  &:nth-last-child(1) {
+    .calender-day {
+      border-top: 0;
+    }
+  }
+}
+
+.calender-week-filler {
+  @extend .calender-week;
+  justify-content: flex-end;
+}
+
+.calender-axis-day {
+  width: 40px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.calender-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid #dbdbdb;
+  border-left: 1px solid #dbdbdb;
+  width: 40px;
+  height: 40px;
+  font-size: 13px;
+  &:hover {
+    background-color: #dbdbdb;
+    cursor: pointer;
+  }
+  &:last-child {
+    border-right: 1px solid #dbdbdb;
+  }
+}
+
+.calender-day-active {
+  @extend .calender-day;
+  background-color: lighten(color-list("accent"), 25%);
+  color: color-list("text-light");
+  border-top: 1px solid lighten(color-list("accent"), 10%);
+  border-left: 1px solid lighten(color-list("accent"), 10%);
+  &:hover {
+    background-color: lighten(color-list("accent"), 10%);
+  }
+  &:last-child {
+    border-right: 1px solid lighten(color-list("accent"), 10%);
+  }
+}
+
+.calender-day-endpoint {
+  @extend .calender-day;
+  background-color: color-list("accent");
+  color: color-list("text-light");
+  border: 1px solid color-list("accent");
+  &:hover {
+    background-color: color-list("accent");
+  }
+}
+
+.calender-day-inactive {
+  @extend .calender-day;
+  color: #dbdbdb;
+  font-weight: lighter;
+  &:hover {
+    background-color: color-list("text-light");
+  }
+}
+
+//----------Guest----------
+//-------------------------
+
+.guest-row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.guest-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  &.guest-label p,
+  small {
+    margin: 0;
+  }
+}
+
+.guest-operator {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+}
+
+//---------Room Type-------------
+//-------------------------------
+
+.room-type-row {
+  display: flex;
+  width: 100%;
+}
+
+.room-type-details {
+  margin-left: 10px;
+  & > * {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  & > p {
+    font-size: 15px;
+  }
+}
+
+.room-type-btn {
+  background: color-list("text-light");
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  height: 22px;
+  margin-right: 20px;
+}
+
+.room-type-btn-active {
+  @extend .room-type-btn;
+  background: color-list("accent");
+}
+
+//----------Price----------
+//-------------------------
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-row {
+  display: flex;
+  width: 100%;
+}
+
+.price-input {
+  margin-left: 10px;
+  padding: 2px;
+  font-size: 16px;
+  width: 60%;
+}
+
+.price-range {
+  margin: 0;
+}
+
+//----------Instant Book----------
+//--------------------------------
+.instant-book-row {
+  display: flex;
+  align-items: center;
+}
+
+.instant-book-details {
+  margin-right: 40px;
+  & > h4 {
+    margin: 0;
+  }
+}
+
+.instant-book-btn-container {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+
+.instant-book-btn {
+  box-sizing: border-box;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: color-list("text-light");
+}
+
+.instant-book-btn-active {
+  @extend .instant-book-btn;
+  left: auto;
+  right: 2px;
+}
+
+.instant-book-slider {
+  width: 60px;
+  height: 40px;
+  background: #dbdbdb;
+  border: darken(#dbdbdb, 20%);
+  border-radius: 19px;
+}
+
+.instant-book-slider-active {
+  @extend .instant-book-slider;
+  background-color: color-list("accent");
+}
+
+// Stand alone components-------------------------------------------
+.filter_apply-btn {
+  background: transparent;
+  border: 0;
+  color: color-list("accent");
+  font-weight: bold;
+  font-size: 14px;
+  float: right;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.filter_clear-btn {
+  background: transparent;
+  border: 0;
+  color: color-list("text-dark");
+  font-weight: bold;
+  font-size: 14px;
+  float: left;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.add-subtract {
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+
+.add-subtract button {
+  background: transparent;
+  color: color-list("accent");
+  width: 35px;
+  height: 35px;
+  border: 1px solid color-list("accent");
+  border-radius: 50%;
+  &:active,
+  :focus {
+    outline: 0;
+    box-shadow: 0;
+  }
+}
+
+.add-subtract_num {
+  flex-grow: 3;
+}
+
+.add-subtract_plus {
+  float: right;
+}
+
+.add-subtract_minus {
+  float: left;
+}

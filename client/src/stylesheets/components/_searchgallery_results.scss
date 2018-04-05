@@ -1,0 +1,29 @@
+.search-gallery-results__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.search-gallery-noresults__container {
+  margin: 64px 24px 96px;
+}
+
+.search-gallery-noresults__container--header {
+  margin: 10px 0;
+}
+
+.search-gallery-noresults__container--list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.search-gallery-noresults__container--button {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 3px;
+  background-color: color-list("accent");
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 10px;
+}

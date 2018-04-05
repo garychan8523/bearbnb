@@ -1,0 +1,38 @@
+.profile-overview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.profile-overview-header {
+  margin-bottom: 2rem;
+}
+
+.profile-overview-title {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.profile-overview-subtitle {
+  font-weight: 600;
+}
+
+.profile-overview-iconbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+
+  .icon-set {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0.75rem;
+
+    .icon-label {
+      margin-left: 0.5rem;
+    }
+  }
+}

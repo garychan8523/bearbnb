@@ -1,0 +1,22 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: visible;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 1080px;
+  padding: 0 24px;
+}
+
+.profile-left {
+  width: 25%;
+}
+
+.profile-right {
+  width: 72%;
+  padding-left: 3%;
+}

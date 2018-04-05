@@ -1,0 +1,65 @@
+.host-display {
+  display: flex;
+  flex-direction: column;
+  color: color-list("text-dark");
+  padding: 3rem 0;
+}
+
+.host-display-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.host-display-headline {
+  display: flex;
+  flex-direction: column;
+}
+
+.host-display-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.host-display-joindate {
+  font-size: 0.9rem;
+}
+
+.host-display-iconbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+
+  .icon-set {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0.75rem;
+
+    .icon-label {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.host-display-img {
+  background-color: #333;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 1rem;
+}
+
+.host-display-intro {
+  padding: 1rem 0;
+}
+
+.host-display ul {
+  padding: 0;
+  list-style: none;
+
+  li > span {
+    font-weight: 500;
+  }
+}
