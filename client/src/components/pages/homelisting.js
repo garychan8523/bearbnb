@@ -36,7 +36,7 @@ class HomeListing extends Component {
     await this.props.fetchAllReviews();
     await this.props.fetchAllUsers();
     await this.props.fetchAllHomes();
-    await this.populateListings();
+    //await this.populateListings();
   }
 
   populateListings() {
