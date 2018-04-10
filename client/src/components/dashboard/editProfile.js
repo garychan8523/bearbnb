@@ -5,7 +5,8 @@ import Button from "../../common/button";
 
 class EditProfile extends Component {
   state = {
-    user: this.props.auth
+    user: this.props.auth,
+    success: "123"
   };
 
   handleChange(e) {
@@ -31,6 +32,7 @@ class EditProfile extends Component {
     });
     this.props.updateUser(updatedUser, this.props.auth._id);
     this.editForm.reset();
+    this.state.success = "success";
   }
 
   renderDays() {
@@ -315,7 +317,7 @@ class EditProfile extends Component {
             onClick={e => this.handleSubmit(e)}
             btnClass="big-red"
             btnText="Save"
-          />
+          /> <p>{this.state.success}</p>
         </span>
       </div>
     );
