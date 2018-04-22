@@ -1238,7 +1238,7 @@ button:hover {
   font-family: "montserrat";
   font-weight: 500;
   letter-spacing: -0.3px;
-  box-shadow: 0 0 8px 4px rgba(71, 71, 71, 0.05);
+  box-shadow: 0 0 8px 4px rgba(102, 178, 178, 0.1);
   width: 100%;
   line-height: 2;
   outline: none; }
