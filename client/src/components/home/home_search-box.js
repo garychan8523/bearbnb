@@ -12,10 +12,10 @@ const SearchBox = props => {
       <div className="searchbox">
         <div className="searchbox-banner-container">
           <div className="searchbox-banner">
-            <span className="searchbox-banner__airbnb">Bearbnb</span>
+            <span className="searchbox-banner__airbnb">Eventable</span>
             <br />
             <span className="searchbox-banner__subtitle">
-              Book unique homes and experience a city like a local.
+              Search every events, any kinds, anytime, anywhere.
             </span>
           </div>
         </div>
@@ -35,7 +35,7 @@ const SearchBox = props => {
               type="text"
               id="searchbox"
               className="searchbox-search__input"
-              placeholder="Try &quot;Dallas or Seattle&quot;"
+              placeholder="Enter a location, Try &quot;Dallas or Seattle&quot;"
             />
             <button className="searchbox-search__button">Search</button>
           </form>

@@ -61,8 +61,6 @@ const mainFooter = props => {
               <div className="footerSelections--lang">
                 <select>
                   <option value="English">English</option>
-                  <option value="Spanish">Spanish</option>
-                  <option value="French">French</option>
                 </select>
                 <span className="footerSelections__arrow">
                   <svg
@@ -76,7 +74,6 @@ const mainFooter = props => {
               <div className="footerSelections--curr">
                 <select>
                   <option value="US Dollar">United States Dollar</option>
-                  <option value="Euro">Euros</option>
                 </select>
                 <span className="footerSelections__arrow">
                   <svg
@@ -91,37 +88,25 @@ const mainFooter = props => {
           </div>
 
           <ul>
-            <li className="boldFootItem">BearBnB</li>
+            <li className="boldFootItem">Eventable</li>
             <li className="footItem">About Us</li>
-            <li className="footItem">Careers</li>
-            <li className="footItem">Press</li>
-            <li className="footItem">Policies</li>
             <li className="footItem">Help</li>
-            <li className="footItem">Diversity & Belonging</li>
           </ul>
 
           <ul className="footer-discover">
             <li className="boldFootItem">Discover</li>
-            <li className="footItem">Trust & Safety</li>
-            <li className="footItem">Travel Credit</li>
-            <li className="footItem">Gift Cards</li>
-            <li className="footItem">BearBnB Citizen</li>
-            <li className="footItem">Business Travel</li>
-            <li className="footItem">Guidebooks</li>
-            <li className="footItem">BearBnB Mag</li>
+            <li className="footItem">All events</li>
           </ul>
 
           <ul className="footer-hosting">
-            <li className="boldFootItem">Hosting</li>
-            <li className="footItem">Why Host</li>
-            <li className="footItem">Hospitality</li>
-            <li className="footItem">Responsible Hosting</li>
-            <li className="footItem">Community Center</li>
+            <li className="boldFootItem">Sign up</li>
+            <li className="footItem">Host event</li>
           </ul>
+
         </div>
         <div className="secondFooter">
           <div className="footContainer">
-            <h3>BearBnB &copy; 2018</h3>
+            <h3>Eventable &copy; 2018</h3>
 
             <ul>
               <li className="infoItem">Terms</li>

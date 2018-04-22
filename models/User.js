@@ -15,8 +15,6 @@ const userSchema = new Schema({
   state: String,
   zipcode: String,
   country: String,
-  school: String,
-  work: String,
   languages: String,
   verified: {
     id: Boolean,

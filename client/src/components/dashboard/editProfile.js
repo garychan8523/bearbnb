@@ -6,7 +6,7 @@ import Button from "../../common/button";
 class EditProfile extends Component {
   state = {
     user: this.props.auth,
-    success: "123"
+    success: false
   };
 
   handleChange(e) {
@@ -21,18 +21,20 @@ class EditProfile extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state.user;
-    const updatedUser = {
-      ...user,
-      [e.target.name]: e.target.value
-    };
-    this.setState({
-      user: updatedUser
-    });
-    this.props.updateUser(updatedUser, this.props.auth._id);
-    this.editForm.reset();
-    this.state.success = "success";
+    if(!this.state.success){
+      e.preventDefault();
+      const user = this.state.user;
+      const updatedUser = {
+        ...user,
+        [e.target.name]: e.target.value
+      };
+      this.setState({
+        user: updatedUser
+      });
+      this.props.updateUser(updatedUser, this.props.auth._id);
+      this.editForm.reset();
+      this.state.success = true;
+    }
   }
 
   renderDays() {
@@ -101,9 +103,7 @@ class EditProfile extends Component {
                   required
                 />
                 <div className="dashboard-disclaimer">
-                  Your public profile only shows your first name. When you
-                  request a booking, your host will see your first and last
-                  name.
+                  *People can only see your first name, except for hosts.
                 </div>
               </span>
             </div>
@@ -122,8 +122,7 @@ class EditProfile extends Component {
                   <option value="other">Other</option>
                 </select>
                 <div className="dashboard-disclaimer">
-                  We use this data for analysis and never share it with other
-                  users.
+                  *Not disclosed.
                 </div>
               </span>
             </div>
@@ -172,9 +171,7 @@ class EditProfile extends Component {
                   {this.renderYears()}
                 </select>
                 <div className="dashboard-disclaimer">
-                  The magical day you were dropped from the sky by a stork. We
-                  use this data for analysis and never share it with other
-                  users.
+                  *Not disclosed either.
                 </div>
               </span>
             </div>
@@ -190,10 +187,6 @@ class EditProfile extends Component {
                   onChange={e => this.handleChange(e)}
                   required
                 />
-                <div className="dashboard-disclaimer">
-                  We won’t share your private email address with other Bearbnb
-                  users.
-                </div>
               </span>
             </div>
             <div className="form-item">
@@ -248,14 +241,7 @@ class EditProfile extends Component {
                   required
                 />
                 <div className="dashboard-disclaimer">
-                  Bearbnb is built on relationships. Help others get to know
-                  you.
-                </div>
-                <div className="dashboard-disclaimer">
-                  Tell them about the things you like: What are 5 things you
-                  can’t live without? Share your favorite travel destinations,
-                  books, movies, shows, music, food. Do you have a life motto?
-                  What is your favorite species of bear?
+                  Let others know more about you.
                 </div>
               </span>
             </div>
@@ -270,32 +256,6 @@ class EditProfile extends Component {
             onSubmit={e => this.handleSubmit(e)}
           >
             <div className="form-item">
-              <span className="form-label">Schools </span>
-              <span className="form-inputs">
-                <input
-                  className="long-input"
-                  type="text"
-                  name="school"
-                  value={this.state.user.school}
-                  placeholder="Schools - separate with commas(,)"
-                  onChange={e => this.handleChange(e)}
-                />
-              </span>
-            </div>
-            <div className="form-item">
-              <span className="form-label">Work </span>
-              <span className="form-inputs">
-                <input
-                  className="long-input"
-                  type="text"
-                  name="work"
-                  value={this.state.user.work}
-                  placeholder="Work - separate with commas(,)"
-                  onChange={e => this.handleChange(e)}
-                />
-              </span>
-            </div>
-            <div className="form-item">
               <span className="form-label">Languages </span>
               <span className="form-inputs">
                 <input
@@ -303,7 +263,7 @@ class EditProfile extends Component {
                   type="text"
                   name="languages"
                   value={this.state.user.languages}
-                  placeholder="Languages - separate with commas(,)"
+                  placeholder="separate with commas(,)"
                   onChange={e => this.handleChange(e)}
                 />
               </span>
@@ -312,12 +272,21 @@ class EditProfile extends Component {
           </form>
         </div>
         <span>
-          <Button
+          {this.state.success ? (
+            <Button
+            btnType="submit"
+            onClick={e => this.handleSubmit(e)}
+            btnClass="big-green-success"
+            btnText="Saved" 
+            disabled />
+          ) : (
+            <Button
             btnType="submit"
             onClick={e => this.handleSubmit(e)}
             btnClass="big-red"
             btnText="Save"
-          /> <p>{this.state.success}</p>
+            />
+          )}
         </span>
       </div>
     );
