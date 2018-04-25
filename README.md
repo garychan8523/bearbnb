@@ -1,9 +1,10 @@
-# bearbnb
-a fork from https://github.com/chingu-voyage3/bears-06 using
+# Eventable
+this was a fork from the bearbnb project https://github.com/chingu-voyage3/bears-06
+
 Front End: React, Redux, React Router V4
 Back End: Express, Mongo(mLab), Mongoose, Passport
 
-## to start
+## to begin
 - git clone https://github.com/garychan8523/bearbnb.git
 - cd bearbnb
 - npm install
@@ -13,8 +14,4 @@ Back End: Express, Mongo(mLab), Mongoose, Passport
 - (edit config/dev.js)
 - npm run dev
 
-if you dont have mongo yet, install mongo using brew:
-"brew install mongodb"
-
-install robo3T to have gui of mongo:
-https://robomongo.org/
+make sure you have mongodb running.
