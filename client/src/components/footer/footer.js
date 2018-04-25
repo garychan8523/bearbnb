@@ -106,7 +106,7 @@ const mainFooter = props => {
         </div>
         <div className="secondFooter">
           <div className="footContainer">
-            <h3>Eventable &copy; 2018</h3>
+            <h3>Eventable</h3>
 
             <ul>
               <li className="infoItem">Terms</li>

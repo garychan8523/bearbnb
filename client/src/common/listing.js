@@ -202,7 +202,6 @@ class Listing extends Component {
       </div>
     );
     const bedPlural = this.state.bedCount > 1 ? "BEDS" : "BED";
-    const reviewDiv = overview.reviews.length > 0 ? reviewDivConfig : "";
     const hasHeart = this.props.type === "a" ? "" : heart;
 
     let displayImg;
@@ -267,17 +266,20 @@ class Listing extends Component {
         {displayImg}
         <Link to={"/homes/" + overview._id} className="listing__anchor">
           <div className={"listing__text " + typeDTextClass}>
-            <div className="listing__text--descriptor">
-              {overview.homeinformation.boundary.toUpperCase()} •{" "}
-              {this.state.bedCount} {bedPlural}
-            </div>
             <div className="listing__text--title">
               {overview.homeinformation.title}
             </div>
-            <div className="listing__text--rate">
-              ${overview.homeinformation.price.weekday} per night
+
+            <div className="listing__text--descriptor">
+              {overview.homeinformation.description} 
             </div>
-            {reviewDiv}
+            <div className="listing__text--descriptor">
+              
+              // Event start from {overview.startTime} to {overview.endTime}{"\n"}
+            </div>
+            <div className="listing__text--descriptor">
+              // Price: $ {overview.homeinformation.price}
+            </div>
           </div>
         </Link>
       </div>

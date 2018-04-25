@@ -15,8 +15,6 @@ module.exports = app => {
         state: user.state,
         country: user.country,
         languages: user.languages,
-        school: user.school,
-        work: user.work,
         verified: user.verified,
         superuser: user.superuser,
         homeids: user.homeids,

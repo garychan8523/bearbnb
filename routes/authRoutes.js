@@ -46,8 +46,6 @@ module.exports = app => {
         user.state = req.body.state || user.state;
         user.zipcode = req.body.zipcode || user.zipcode;
         user.country = req.body.country || user.country;
-        user.school = req.body.school || user.school;
-        user.work = req.body.work || user.work;
         user.languages = req.body.languages || user.languages;
         user.verified.id = req.body.verified.id;
         user.verified.info = req.body.verified.info;
