@@ -47,18 +47,18 @@ module.exports = app => {
         user.zipcode = req.body.zipcode || user.zipcode;
         user.country = req.body.country || user.country;
         user.languages = req.body.languages || user.languages;
-        user.verified.id = req.body.verified.id;
-        user.verified.info = req.body.verified.info;
-        user.verified.email = req.body.verified.email;
-        user.verified.phone = req.body.verified.phone;
-        user.verified.workemail = req.body.verified.workemail;
-        user.superuser = req.body.superuser;
+        user.verified.id = true;
+        user.verified.info = true;
+        user.verified.email = true;
+        user.verified.phone = true;
+        user.verified.workemail = true;
+        user.superuser = true;
         user.homeids = req.body.homeids || user.homeids;
         user.reviews = req.body.reviews || user.reviews;
         user.references = req.body.references || user.references;
         user.intro = req.body.intro || user.intro;
         user.image = req.body.image || user.image;
-        user.admin = req.body.admin;
+        user.admin = true;
         user.bookedHomes = req.body.bookedHomes || user.bookedHomes;
 
         user.save((err, user) => {

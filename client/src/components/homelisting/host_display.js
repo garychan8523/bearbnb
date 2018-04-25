@@ -11,37 +11,12 @@ const HostDisplay = props => {
     <div className="host-display">
       <div className="host-display-header">
         <div className="host-display-headline">
-          <div className="host-display-title">Hosted By {host.firstName}</div>
+          <div className="host-display-title">This event is hosted by: {host.firstName}</div>
           <div className="host-display-joindate">
-            {host.city + ", " + host.state}
-            - Joined {formatDate(host.joindate)}
+            from {host.city + ", " + host.state}
+            , our member since {formatDate(host.joindate)}
           </div>
-          <div className="host-display-iconbar">
-            <div className="icon-set">
-              <Button
-                btnType="button"
-                btnClass="btn-yellow"
-                btnText={host.reviews.length}
-              />
-              <span className="icon-label">Reviews</span>
-            </div>
-            <div className="icon-set">
-              <Button
-                btnType="button"
-                btnClass="btn-yellow"
-                btnText={host.references.length}
-              />
-              <span className="icon-label">References</span>
-            </div>
-            {host.verified.id ? (
-              <div className="icon-set">
-                <VerifiedIcon />
-                <span className="icon-label">Verified</span>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
+          <div className="host-display-intro">{host.intro}</div>
         </div>
         <a href={`/users/${props.profile.id}`}>
           <img
@@ -51,25 +26,9 @@ const HostDisplay = props => {
           />
         </a>
       </div>
-      <div className="host-display-intro">{host.intro}</div>
-      <a href={`/users/${props.profile.id}`}>
-        <Button
-          btnType="button"
-          btnClass="accent-outline"
-          btnText="Contact host"
-        />
-      </a>
-      <ul>
-        <li>
-          Languages: <span>{host.languages}</span>
-        </li>
-        <li>
-          Response Rate: <span>100%</span>
-        </li>
-        <li>
-          Response Time: <span>1 hour</span>
-        </li>
-      </ul>
+      
+      <a href={`/users/${props.profile.id}`}></a>
+      <div className="divider" />
     </div>
   );
 };

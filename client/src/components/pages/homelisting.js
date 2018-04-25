@@ -101,65 +101,14 @@ class HomeListing extends Component {
             <div className="homelisting-top">
               <div className="homelisting-left" id="overview">
                 <HomeOverview homes={this.props.home} />
+                {(this.props.profile.reviews.length>0) ? (
                 <div className="review-list" id="reviews">
                   <div className="review-list-header">
-                    <h2>{this.props.profile.reviews.length} Reviews </h2>
                     <LargeReviewStars
                       overview_id={this.props.home._id}
                       reviewCount={this.props.home.reviewAvg.avg}
-                      size="2"
-                    />
-                  </div>
-                  <hr />
-                  <div className="review-list-table">
-                    <div className="review-list-bullet">
-                      <h4>Accuracy</h4>
-                      <LargeReviewStars
-                        overview_id={this.props.home._id}
-                        reviewCount={this.props.home.reviewAvg.accuracy}
-                        size="1"
-                      />
-                    </div>
-                    <div className="review-list-bullet">
-                      <h4>Location</h4>
-                      <LargeReviewStars
-                        overview_id={this.props.home._id}
-                        reviewCount={this.props.home.reviewAvg.location}
-                        size="1"
-                      />
-                    </div>
-                    <div className="review-list-bullet">
-                      <h4>Communication</h4>
-                      <LargeReviewStars
-                        overview_id={this.props.home._id}
-                        reviewCount={this.props.home.reviewAvg.communication}
-                        size="1"
-                      />
-                    </div>
-                    <div className="review-list-bullet">
-                      <h4>Check In</h4>
-                      <LargeReviewStars
-                        overview_id={this.props.home._id}
-                        reviewCount={this.props.home.reviewAvg.checkin}
-                        size="1"
-                      />
-                    </div>
-                    <div className="review-list-bullet">
-                      <h4>Cleanliness</h4>
-                      <LargeReviewStars
-                        overview_id={this.props.home._id}
-                        reviewCount={this.props.home.reviewAvg.cleanliness}
-                        size="1"
-                      />
-                    </div>
-                    <div className="review-list-bullet">
-                      <h4>Value</h4>
-                      <LargeReviewStars
-                        overview_id={this.props.home._id}
-                        reviewCount={this.props.home.reviewAvg.value}
-                        size="1"
-                      />
-                    </div>
+                      size="1"
+                    /> {"  "} from {this.props.profile.reviews.length} Reviews for this event :
                   </div>
 
                   {Object.keys(this.props.profile.reviews).map(key => {
@@ -184,11 +133,13 @@ class HomeListing extends Component {
                           </span>
                         </div>
                         <div className="review-content">{review.content}</div>
-                        <hr />
+                        <div className="divider" />
                       </div>
                     );
                   })}
                 </div>
+              ) : ( "There are no review yet.") }
+
                 <div id="host">
                   <HostDisplay
                     home={this.props.home}
@@ -202,11 +153,6 @@ class HomeListing extends Component {
             </div>
             <div className="home-listing-bottom" id="location">
               <HomeMap homes={this.props.home} profile={this.props.profile} />
-              <Carousel
-                listingData={this.state.listings}
-                type="b"
-                title="Similar Listings"
-              />
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ const ReviewStars = props => {
     }
   }
 
-  return <span className="large-stars">{starCollection}</span>;
+  return <span className="large-stars review-stars">{starCollection}</span>;
 };
 
 export default ReviewStars;

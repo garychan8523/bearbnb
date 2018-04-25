@@ -548,7 +548,6 @@ button:hover {
 .header-search--b {
   height: 60px;
   width: 100%;
-  border-left: 1px solid #c3c3c3;
   line-height: 60px;
   margin-left: 10px; }
 
@@ -592,11 +591,12 @@ button:hover {
 .header-search__input--b {
   border: 0;
   height: 100%;
-  width: 100%;
+  width: 450px;
   padding: 15px 0 15px 30px;
   background-color: transparent;
   box-shadow: none;
-  font-size: 14px; }
+  font-size: 14px;
+  border-bottom: solid 1px #ccc; }
 
 .footer {
   display: flex;
@@ -782,15 +782,25 @@ button:hover {
 
 .big-green-success {
   padding: 0.4rem 1.5rem;
-  border: 1px solid #83d8a9;
+  border: 1px solid #83d8a9 !important;
   border-radius: 4px;
   outline: none;
-  background-color: #83d8a9;
+  background-color: #83d8a9 !important;
   font-weight: 500;
   font-size: 0.9rem;
   color: #ffffff;
   cursor: not-allowed;
   pointer-events: none; }
+
+.nav-selected {
+  color: #66b2b2;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.review-stars {
+  margin-right: 10px;
+}
 
 .linkbutton {
   padding: 0;
@@ -1077,8 +1087,8 @@ button:hover {
 
 .descriptionBox__neighborhood {
   margin-bottom: 22px;
-  font-size: 28px;
-  letter-spacing: -0.5px; }
+  font-size: 1.1rem;
+  font-weight: 600 }
 
 .descriptionBox__location,
 .descriptionBox__description {
@@ -1090,8 +1100,9 @@ button:hover {
   margin-top: 8px; }
 
 .googleMap {
-  height: 650px;
-  width: 90%; }
+  height: 400px;
+  width: 90%;
+  margin-bottom: 80px; }
 
 .home-overview-title > h1 {
   margin: 0; }
@@ -1396,7 +1407,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   color: #414141;
-  padding: 3rem 0; }
+  padding: 0rem 0; }
 
 .host-display-header {
   display: flex;
@@ -1407,7 +1418,7 @@ button:hover {
   flex-direction: column; }
 
 .host-display-title {
-  font-size: 1.8rem;
+  font-size: 1.1rem;
   font-weight: 600; }
 
 .host-display-joindate {
@@ -1458,11 +1469,13 @@ button:hover {
 
 .listingAlbum {
   cursor: pointer;
-  height: 560px;
-  width: 100%;
+  height: 200px;
+  width: 65%;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end; }
+  align-items: flex-end;
+  margin: auto;
+}
 
 .homeImageAlbum {
   position: fixed;
@@ -2307,7 +2320,7 @@ button:hover {
   margin-top: 10px; }
 
 .bookingContainer {
-  width: 400px;
+  width: 300px;
   border: 1px solid lightgrey;
   margin: 15px; }
   .bookingContainer .bookingContent {
@@ -2567,7 +2580,7 @@ button:hover {
   box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.5); }
 
 .review-list {
-  padding: 2rem 0; }
+  padding: 1rem 0; }
 
 .dashboard {
   width: 100%;
@@ -2684,10 +2697,18 @@ button:hover {
 .homelisting, .homelisting-body {
   display: flex;
   flex-direction: column;
-  width: 100%; }
+  width: 100%; 
+  background: #000; }
 
 .homelisting-body {
-  padding: 0 5%; }
+  padding: 0 15%; 
+  background: #fcfcfc}
+
+.sidenote {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
 .homenav {
   display: flex;
@@ -2695,12 +2716,13 @@ button:hover {
   top: 0;
   background-color: white;
   justify-content: center;
-  padding: 1rem;
+  padding: .6rem;
   width: 100%;
   z-index: 200;
-  border-bottom: 1px solid #767676; }
+  border-bottom: 1px solid #ccc;
+  opacity: 0.95; }
   .homenav > a {
-    margin-right: 1rem;
+    margin-right: 3rem;
     color: #227b7f;
     font-weight: 500;
     text-decoration: none; }

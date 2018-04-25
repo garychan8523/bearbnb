@@ -41,26 +41,48 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="dashboard-left">
-          <h4 onClick={() => this.changeMenu("editProfile")}>Edit Profile</h4>
-          <h4 onClick={() => this.changeMenu("changePhoto")}>Change Photo</h4>
-          <h4
-            hidden={!this.props.auth.admin}
+          {this.state.activeMenu === "editProfile" ? (
+            <h4 class="nav-selected" onClick={() => this.changeMenu("editProfile")}>Edit Profile</h4>
+          ) : (
+            <h4 onClick={() => this.changeMenu("editProfile")}>Edit Profile</h4>
+          )}
+
+          {this.state.activeMenu === "changePhoto" ? (
+            <h4 class="nav-selected" onClick={() => this.changeMenu("changePhoto")}>Change Photo</h4>
+          ) : (
+            <h4 onClick={() => this.changeMenu("changePhoto")}>Change Photo</h4>
+          )}
+
+          {this.state.activeMenu === "addReview" ? (
+            <h4 class="nav-selected" hidden={!this.props.auth.admin}
             onClick={() => this.changeMenu("addReview")}
-          >
-            Add Review
-          </h4>
-          <h4
-            hidden={!this.props.auth.admin}
+          >Add Review</h4>
+          ) : (
+            <h4 hidden={!this.props.auth.admin}
+            onClick={() => this.changeMenu("addReview")}
+          >Add Review</h4>
+          )}
+
+          {this.state.activeMenu === "addReference" ? (
+            <h4 class="nav-selected" hidden={!this.props.auth.admin}
             onClick={() => this.changeMenu("addReference")}
-          >
-            Add Reference
-          </h4>
-          <h4
-            hidden={!this.props.auth.admin}
+          >Add Reference</h4>
+          ) : (
+            <h4 hidden={!this.props.auth.admin}
+            onClick={() => this.changeMenu("addReference")}
+          >Add Reference</h4>
+          )}
+          
+          {this.state.activeMenu === "addHome" ? (
+          <h4 class="nav-selected" hidden={!this.props.auth.admin}
             onClick={() => this.changeMenu("addHome")}
-          >
-            Add Home
-          </h4>
+          >Add Home</h4>
+          ) : (
+          <h4 hidden={!this.props.auth.admin}
+            onClick={() => this.changeMenu("addHome")}
+          >Add Home</h4>
+          )}
+          
           <h4>
             <a href={`/users/${this.props.auth._id}`}>View Profile</a>
           </h4>
