@@ -7,65 +7,9 @@ export default class SearchGalleryFilterBar extends React.Component {
     filter: {
       dates: [], // [start, end], {year, month, day}
       guests: {
-        // Children are 2 - 12, infants are Under 2
-        adults: 1,
-        children: 0,
-        infants: 0
+        guests: 1
       },
-      roomType: {
-        entirePlace: false,
-        privateRoom: false,
-        sharedRoom: false
-      },
-      price: {
-        // In USD
-        min: 10,
-        max: 1000,
-        average: 77
-      },
-      instantBook: false,
-      moreFilters: {
-        superhost: false,
-        beds: 0,
-        bedrooms: 0,
-        bathrooms: 0,
-        amenities: {
-          kitchen: false,
-          shampoo: false,
-          heating: false,
-          airConditioning: false,
-          washer: false,
-          dryer: false,
-          wirelessInternet: false,
-          breakfast: false,
-          familyFriendly: false,
-          indoorFireplace: false,
-          wirelessIntercom: false,
-          doorman: false,
-          hangers: false,
-          iron: false,
-          hairDryer: false,
-          friendlyWorkspace: false,
-          lockOnBedroomDoor: false,
-          selfCheckIn: false,
-          tv: false
-        },
-        facilities: {
-          elevator: false,
-          freeParking: false,
-          gym: false,
-          hotTub: false,
-          pool: false,
-          wheelChairAccessible: false
-        },
-        hostRules: {
-          suitableForEvents: false,
-          pets: false,
-          smoking: false
-        },
-        neighborhoods: [], // To be implimented
-        hostLanguage: {} // To be implimented
-      }
+      price: 0
     }
   };
 
@@ -106,42 +50,28 @@ export default class SearchGalleryFilterBar extends React.Component {
   componentWillUnmount() {
     this.props.onReset(this);
   }
-
+// <Dates
+//   dates={this.state.filter.dates}
+//   updateFilter={this.updateFilter.bind(this)}
+//   toggleComponent={this.toggleComponent.bind(this)}
+//   activeComponent={this.state.activeComponent}
+// />
+// <Guests
+//   guests={this.state.filter.guests}
+//   updateFilter={this.updateFilter.bind(this)}
+//   toggleComponent={this.toggleComponent.bind(this)}
+//   activeComponent={this.state.activeComponent}
+// />
   render() {
     return (
       <div>
         <div className="filter-bar">
-          <Dates
-            dates={this.state.filter.dates}
-            updateFilter={this.updateFilter.bind(this)}
-            toggleComponent={this.toggleComponent.bind(this)}
-            activeComponent={this.state.activeComponent}
-          />
-          <Guests
-            guests={this.state.filter.guests}
-            updateFilter={this.updateFilter.bind(this)}
-            toggleComponent={this.toggleComponent.bind(this)}
-            activeComponent={this.state.activeComponent}
-          />
-          <RoomType
-            roomType={this.state.filter.roomType}
-            updateFilter={this.updateFilter.bind(this)}
-            toggleComponent={this.toggleComponent.bind(this)}
-            activeComponent={this.state.activeComponent}
-          />
           <Price
             price={this.state.filter.price}
             updateFilter={this.updateFilter.bind(this)}
             toggleComponent={this.toggleComponent.bind(this)}
             activeComponent={this.state.activeComponent}
           />
-          <InstantBook
-            instantBook={this.state.filter.instantBook}
-            updateFilter={this.updateFilter.bind(this)}
-            toggleComponent={this.toggleComponent.bind(this)}
-            activeComponent={this.state.activeComponent}
-          />
-          <MoreFilters /> {/* only visual for now*/}
         </div>
         <div
           className={this.state.overlay ? "filter-overlay" : ""}
@@ -538,30 +468,20 @@ class Guests extends React.Component {
 
   addGuest(type) {
     var guests = this.state.guests;
-    if (type === "adult" && guests.adults < 16) {
-      guests.adults++;
-    } else if (type === "child" && guests.children < 5) {
-      guests.children++;
-    } else if (type === "infant" && guests.infants < 5) {
-      guests.infants++;
+    if (type === "guests" && guests.guests < 16) {
+      guests.guests++;
     }
     this.setState({ guests: guests });
   }
 
   minusGuest(type) {
     var guests = this.state.guests;
-    if (type === "adult" && guests.adults > 1) {
-      guests.adults--;
-    } else if (type === "child" && guests.children > 0) {
-      guests.children--;
-    } else if (type === "infant" && guests.infants > 0) {
-      guests.infants--;
+    if (type === "guests" && guests.guests > 1) {
+      guests.guests--;
     }
     this.setState({ guests: guests }, () => {
       if (
-        this.state.guests.adults === 1 &&
-        this.state.guests.children === 0 &&
-        this.state.guests.infants === 0
+        this.state.guests.guests === 1
       ) {
         this.setState({ active: false });
       }
@@ -570,9 +490,7 @@ class Guests extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (
-      this.state.guests.adults !== nextProps.guests.adults ||
-      this.state.guests.children !== nextProps.guests.children ||
-      this.state.guests.infants !== nextProps.guests.infants
+      this.state.guests.guests !== nextProps.guests.guests
     ) {
       this.clearFilter();
     }
@@ -581,7 +499,7 @@ class Guests extends React.Component {
   clearFilter() {
     this.setState(
       {
-        guests: { adults: 1, children: 0, infants: 0 },
+        guests: { guests: 1 },
         totalGuests: "",
         active: false
       },
@@ -592,10 +510,7 @@ class Guests extends React.Component {
   }
 
   applyFilter() {
-    var total =
-      this.state.guests.adults +
-      this.state.guests.children +
-      this.state.guests.infants;
+    var total = this.state.guests.guests;
     this.setState({ active: true, totalGuests: total });
     this.updateGuestFilter();
   }
@@ -617,54 +532,21 @@ class Guests extends React.Component {
             <div className="filter-container guest-container">
               <div className="guest-row">
                 <div className="guest-label">
-                  <p className="guest-label">Adults</p>
+                  <p className="guest-label">Guests</p>
                 </div>
                 <div className="guest-operator">
                   <AddSubtract
-                    num={this.state.guests.adults}
+                    num={this.state.guests.guests}
                     onAdd={() => {
-                      this.addGuest("adult");
+                      this.addGuest("guests");
                     }}
                     onMinus={() => {
-                      this.minusGuest("adult");
+                      this.minusGuest("guests");
                     }}
                   />
                 </div>
               </div>
-              <div className="guest-row">
-                <div className="guest-label">
-                  <p className="guest-label">Children</p>
-                  <small>Ages 2 - 12</small>
-                </div>
-                <div className="guest-operator">
-                  <AddSubtract
-                    num={this.state.guests.children}
-                    onAdd={() => {
-                      this.addGuest("child");
-                    }}
-                    onMinus={() => {
-                      this.minusGuest("child");
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="guest-row">
-                <div className="guest-label">
-                  <p>Infants</p>
-                  <small>Under 2</small>
-                </div>
-                <div className="guest-operator">
-                  <AddSubtract
-                    num={this.state.guests.infants}
-                    onAdd={() => {
-                      this.addGuest("infant");
-                    }}
-                    onMinus={() => {
-                      this.minusGuest("infant");
-                    }}
-                  />
-                </div>
-              </div>
+
               <div>
                 <button
                   className="filter_clear-btn"
@@ -689,181 +571,13 @@ class Guests extends React.Component {
   }
 }
 
-class RoomType extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      roomType: {
-        entirePlace: props.roomType.entirePlace,
-        privateRoom: props.roomType.privateRoom,
-        sharedRoom: props.roomType.sharedRoom
-      },
-      active: false
-    };
-  }
-
-  toggleEntire() {
-    var tmp = this.state.roomType;
-    tmp.entirePlace = !tmp.entirePlace;
-    this.setState({ roomType: tmp });
-  }
-
-  togglePrivate() {
-    var roomType = this.state.roomType;
-    roomType.privateRoom = !this.state.roomType.privateRoom;
-    this.setState({ roomType: roomType });
-  }
-
-  toggleShared() {
-    var roomType = this.state.roomType;
-    roomType.sharedRoom = !this.state.roomType.sharedRoom;
-    this.setState({ roomType: roomType });
-  }
-
-  applyChanges() {
-    this.props.updateFilter("roomType", this.state.roomType);
-    this.setState({ active: true });
-  }
-
-  clearFilter() {
-    this.setState(
-      {
-        roomType: {
-          entirePlace: false,
-          privateRoom: false,
-          sharedRoom: false
-        },
-        active: false
-      },
-      () => {
-        this.props.updateFilter("roomType", this.state.roomType);
-      }
-    );
-  }
-
-  getButtonText() {
-    if (!this.state.active) {
-      return "Home type";
-    }
-
-    var type = this.state.roomType;
-
-    var countKeys = () => {
-      var keys = Object.keys(type);
-      var count = 0;
-      for (let i = 0; i < keys.length; i++) {
-        if (type[keys[i]]) {
-          count++;
-        }
-      }
-      return count;
-    };
-
-    if (type.entirePlace && !type.privateRoom && !type.sharedRoom) {
-      return "Entire place";
-    } else if (!type.entirePlace && !type.privateRoom && type.sharedRoom) {
-      return "Shared room";
-    } else if (!type.entirePlace && type.privateRoom && !type.sharedRoom) {
-      return "Private room";
-    } else if (countKeys() > 1) {
-      return "Home type - " + countKeys();
-    }
-    return "Home type";
-  }
-
-  render() {
-    return (
-      <div className="filter-btn-container">
-        <button
-          className={
-            this.state.active
-              ? "filter-btn-active filter-btn-mobile-hide"
-              : "filter-btn filter-btn-mobile-hide"
-          }
-          onClick={() => {
-            this.props.toggleComponent("RoomType");
-          }}
-        >
-          {this.getButtonText()}
-        </button>
-        <div className="filter-pseudo-parent">
-          {this.props.activeComponent === "RoomType" ? (
-            <div className="filter-container">
-              <div className="room-type-row">
-                <button
-                  className={
-                    this.state.roomType.entirePlace
-                      ? "room-type-btn-active"
-                      : "room-type-btn"
-                  }
-                  onClick={this.toggleEntire.bind(this)}
-                />
-                <div className="room-type-details">
-                  <h4>Entire Place</h4>
-                  <p>Have a place to yourself</p>
-                </div>
-              </div>
-              <div className="room-type-row">
-                <button
-                  className={
-                    this.state.roomType.privateRoom
-                      ? "room-type-btn-active"
-                      : "room-type-btn"
-                  }
-                  onClick={this.togglePrivate.bind(this)}
-                />
-                <div className="room-type-details">
-                  <h4>Private room</h4>
-                  <p>Have your own room and share some common spaces</p>
-                </div>
-              </div>
-              <div className="room-type-row">
-                <button
-                  className={
-                    this.state.roomType.sharedRoom
-                      ? "room-type-btn-active"
-                      : "room-type-btn"
-                  }
-                  onClick={this.toggleShared.bind(this)}
-                />
-                <div className="room-type-details">
-                  <h4>Shared room</h4>
-                  <p>Stay in a shared space, like a common room</p>
-                </div>
-              </div>
-
-              <div>
-                <button
-                  className="filter_clear-btn"
-                  onClick={this.clearFilter.bind(this)}
-                >
-                  Clear
-                </button>
-                <button
-                  className="filter_apply-btn"
-                  onClick={this.applyChanges.bind(this)}
-                >
-                  Apply
-                </button>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    );
-  }
-}
-
 class Price extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       ...props.price,
-      appliedMin: 10,
+      appliedMin: 0,
       appliedMax: 1000
     };
   }
@@ -880,12 +594,6 @@ class Price extends React.Component {
     var min = this.state.min;
     var max = this.state.max;
 
-    if (min < 10) {
-      min = 10;
-    }
-    if (max > 1000) {
-      max = 1000;
-    }
     if (min > max) {
       min = max - 1;
     }
@@ -920,14 +628,14 @@ class Price extends React.Component {
   clearChanges() {
     this.setState(
       {
-        min: 10,
+        min: 0,
         max: 1000,
-        appliedMin: 10,
+        appliedMin: 0,
         appliedMax: 1000
       },
       () => {
         this.props.updateFilter("price", {
-          min: 10,
+          min: 0,
           max: 1000
         });
       }
@@ -943,7 +651,7 @@ class Price extends React.Component {
             this.props.toggleComponent("Price");
           }}
         >
-          {this.state.appliedMin !== 10 || this.state.appliedMax !== 1000
+          {this.state.appliedMin !== 0 || this.state.appliedMax !== 1000
             ? "$" + this.state.appliedMin + " - $" + this.state.appliedMax
             : "Price"}
         </button>
@@ -953,7 +661,6 @@ class Price extends React.Component {
               <h3 className="price-range">
                 ${this.state.appliedMin} - ${this.state.appliedMax}
               </h3>
-              <p>The average nightly price is $77</p>
               <div className="price-row">
                 <div>
                   Min
@@ -1000,109 +707,6 @@ class Price extends React.Component {
   }
 }
 
-class InstantBook extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      appliedBook: false,
-      instantBook: false
-    };
-  }
-
-  toggleInstantBook() {
-    var tmp = !this.state.instantBook;
-    this.setState({ instantBook: tmp });
-  }
-
-  applyChanges() {
-    this.setState({ appliedBook: this.state.instantBook });
-    this.props.updateFilter("instantBook", this.state.instantBook);
-  }
-
-  clearChanges() {
-    this.setState({ instantBook: false, appliedBook: false });
-    this.props.updateFilter("instantBook", false);
-  }
-
-  render() {
-    return (
-      <div className="filter-btn-container">
-        <button
-          className={
-            this.state.appliedBook
-              ? "filter-btn-active filter-btn-mobile-hide"
-              : "filter-btn filter-btn-mobile-hide"
-          }
-          onClick={() => {
-            this.props.toggleComponent("InstantBook");
-          }}
-        >
-          Instant Book
-        </button>
-        <div className="filter-pseudo-parent">
-          {this.props.activeComponent === "InstantBook" ? (
-            <div className="filter-container">
-              <div className="instant-book-row">
-                <div className="instant-book-details">
-                  <h4>Instant Book</h4>
-                  <p>Book without waiting for the host to respond.</p>
-                </div>
-                <div
-                  className="instant-book-btn-container"
-                  onClick={this.toggleInstantBook.bind(this)}
-                >
-                  <div
-                    className={
-                      this.state.instantBook
-                        ? "instant-book-slider-active"
-                        : "instant-book-slider"
-                    }
-                  />
-                  <div
-                    className={
-                      this.state.instantBook
-                        ? "instant-book-btn-active"
-                        : "instant-book-btn"
-                    }
-                  />
-                </div>
-              </div>
-              <div>
-                <button
-                  onClick={this.clearChanges.bind(this)}
-                  className="filter_clear-btn"
-                >
-                  Clear
-                </button>
-                <button
-                  onClick={this.applyChanges.bind(this)}
-                  className="filter_apply-btn"
-                >
-                  Apply
-                </button>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    );
-  }
-}
-
-class MoreFilters extends React.Component {
-  render() {
-    return (
-      <div className="filter-btn-container">
-        <button className="filter-btn">More filters</button>
-        <div className="filter-psuedo-parent" />
-      </div>
-    );
-  }
-}
-
 // Misc Components
 
 // class Overlay extends React.Component {
@@ -1123,7 +727,7 @@ class AddSubtract extends React.Component {
         >
           -
         </button>
-        <span className="add-subtract_num">{this.props.num}+</span>
+        <span className="add-subtract_num">{this.props.num}</span>
         <button
           className="add-subtract_plus"
           onClick={this.props.onAdd.bind(this)}

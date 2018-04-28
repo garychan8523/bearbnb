@@ -104,7 +104,7 @@ class MapB extends Component {
           label: {
             fontWeight: "700",
             fontSize: "16px",
-            text: "$" + home.homeinformation.price.weekday
+            text: "$" + home.homeinformation.price
           },
           icon: icon,
           map: map,
@@ -113,7 +113,7 @@ class MapB extends Component {
         newMarker.setValues({
           id: home._id,
           index: index,
-          price: home.homeinformation.price.weekday
+          price: home.homeinformation.price
         });
         newMarker.addListener("click", () => {
           popup = new Popup(

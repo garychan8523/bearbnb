@@ -187,7 +187,7 @@ class Listing extends Component {
       this.updateState(nextProps);
     }
   }
-
+  
   render() {
     const overview = this.props.listingData;
     const reviewDivConfig = (
@@ -273,12 +273,17 @@ class Listing extends Component {
             <div className="listing__text--descriptor">
               {overview.homeinformation.description} 
             </div>
-            <div className="listing__text--descriptor">
-              
-              // Event start from {overview.startTime} to {overview.endTime}{"\n"}
+            <div className="listing__text--descriptor-sub">
+              // Start from <span id="starttime">{overview.startTime}</span>
+              {overview.endTime ? (" to ") : ("")}
+              <span id="endtime">{overview.endTime}</span>
             </div>
-            <div className="listing__text--descriptor">
-              // Price: $ {overview.homeinformation.price}
+            
+            <div className="listing__text--descriptor-sub">
+              // Price: {overview.homeinformation.price ? ("$ " + overview.homeinformation.price) : ("Free")}
+            </div>
+            <div className="listing__text--descriptor-sub">
+              // Quota: {overview.homeinformation.guestlimit ? (overview.homeinformation.guestlimit) : ("no limit")}
             </div>
           </div>
         </Link>

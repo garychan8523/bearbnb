@@ -34,7 +34,7 @@ class Home extends Component {
     return (
       <div className="homePage">
         <SearchBox history={history} />
-        <Carousel listingData={this.state.listings} type="a" title="Events" />
+        <Carousel listingData={this.state.listings} type="a" title="Latest Events" />
       </div>
     );
   }

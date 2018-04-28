@@ -9,6 +9,9 @@ const ProfileOverview = props => {
   if (!props.profile) {
     return "";
   } else {
+    let joindate = new Date(props.profile.joindate);
+    joindate = joindate.toISOString();
+    joindate = joindate.slice(0, 4);
     return (
       <div className="profile-overview">
         <div className="profile-overview-header">
@@ -16,8 +19,8 @@ const ProfileOverview = props => {
             Hey, I'm {capitalizeFirstLetter(props.profile.firstName)}!
           </div>
           <div className="profile-overview-subtitle">
-            {props.profile.city}, {props.profile.state} · Joined in{" "}
-            {formatDate(props.profile.joindate)}
+            from {" "}{props.profile.city}, {props.profile.state} · our member since{" "}
+            {joindate}
           </div>
         </div>
         <div className="profile-overview-body">
@@ -63,7 +66,7 @@ const ProfileOverview = props => {
           {props.profile.verified.id ? (
             <div className="icon-set">
               <VerifiedIcon />
-              <span className="icon-label">Verified</span>
+              <span className="icon-label">Verified user</span>
             </div>
           ) : (
             ""

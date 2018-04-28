@@ -7,6 +7,9 @@ class Review extends Component {
   render() {
     if (!!this.props.allReviews && !!this.props.allUsers) {
       let currentReview = this.props.allReviews[this.props.reviewId];
+      let reviewdate = new Date(currentReview.reviewdate);
+      reviewdate = reviewdate.toISOString();
+      reviewdate = reviewdate.slice(0, 10) + " " + reviewdate.slice(11, 11+8);
       return (
         <div className="guest-review">
           <div className="guest-review-thumbnail">
@@ -26,7 +29,7 @@ class Review extends Component {
             <p className="guest-review-details">
               From{" "}
               {currentReview.location.city + " " + currentReview.location.state}{" "}
-              - {formatDate(currentReview.reviewdate)}
+              - {"reviewed on: " + reviewdate}
             </p>
             <hr />
           </div>

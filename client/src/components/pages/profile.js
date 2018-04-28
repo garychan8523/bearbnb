@@ -31,10 +31,11 @@ class Profile extends Component {
                 user={user}
                 reviewsNum={this.props.profile.reviews.length}
               />
+              <div className="divider" />
               {this.props.profile.reviews &&
               this.props.profile.reviews.length > 0 ? (
                 <div className="review-list">
-                  <h2>Reviews ({this.props.profile.reviews.length})</h2>
+                  <h2>Event Reviews ({this.props.profile.reviews.length})</h2>
                   <h4>Reviews from Guests</h4>
                   {Object.keys(this.props.profile.reviews).map(key => {
                     return (
@@ -52,7 +53,7 @@ class Profile extends Component {
               {this.props.profile.references &&
               this.props.profile.references.length > 0 ? (
                 <div className="review-list">
-                  <h2>References ({this.props.profile.references.length})</h2>
+                  <h2>Personal References ({this.props.profile.references.length})</h2>
                   {Object.keys(this.props.profile.references).map(key => {
                     return (
                       <Reference

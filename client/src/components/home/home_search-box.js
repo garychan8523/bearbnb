@@ -35,7 +35,7 @@ const SearchBox = props => {
               type="text"
               id="searchbox"
               className="searchbox-search__input"
-              placeholder="Enter a location, Try &quot;Dallas or Seattle&quot;"
+              placeholder="Enter a location, Try &quot;cuhk&quot; or &quot;hong kong&quot;"
             />
             <button className="searchbox-search__button">Search</button>
           </form>

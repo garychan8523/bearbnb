@@ -7,6 +7,9 @@ class Reference extends Component {
   render() {
     if (!!this.props.allReferences && !!this.props.allUsers) {
       let currentReference = this.props.allReferences[this.props.referenceId];
+      let referencedate = new Date(currentReference.referencedate);
+      referencedate = referencedate.toISOString();
+      referencedate = referencedate.slice(0, 10) + " " + referencedate.slice(11, 11+8);
       return (
         <div className="guest-review">
           <div className="guest-review-thumbnail">
@@ -28,7 +31,7 @@ class Reference extends Component {
               {currentReference.location.city +
                 " " +
                 currentReference.location.state}{" "}
-              - {formatDate(currentReference.referencedate)}
+              - {"referenced on: " + referencedate}
             </p>
             <hr />
           </div>

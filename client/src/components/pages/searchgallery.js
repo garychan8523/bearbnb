@@ -12,14 +12,8 @@ let markersArray = [];
 const emptyData = {
   _id: 0,
   homeinformation: {
-    boundary: "",
     title: "",
-    price: {
-      weekday: 0
-    },
-    sleeping: {
-      nothing: {}
-    }
+    price: 0,
   },
   images: [],
   reviewAvg: {
@@ -72,8 +66,8 @@ class SearchGallery extends Component {
             guests += newFilters.guests[guestType];
           }
           if (
-            indhome.homeinformation.price.weekday >= price.min &&
-            indhome.homeinformation.price.weekday <= price.max &&
+            indhome.homeinformation.price >= price.min &&
+            indhome.homeinformation.price <= price.max &&
             indhome.homeinformation.guestlimit >= guests
           ) {
             searchData.push(indhome);
@@ -175,8 +169,7 @@ class SearchGallery extends Component {
                 handleClearFilters={this.clearFilters.bind(this)}
               />
               <div className="search-gallery-disclaimer">
-                Enter dates to see full pricing. Additional fees apply. Taxes
-                may be added.
+                Eventable
               </div>
               <div className="search-gallery-footer">
                 <SearchGalleryCrumbs crumbs={this.state.breadCrumbs} />

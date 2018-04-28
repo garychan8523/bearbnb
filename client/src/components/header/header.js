@@ -161,7 +161,7 @@ class Header extends React.Component {
             id="headersearch"
             className={inputBoxType}
             defaultValue={currentSearchTerm}
-            placeholder="Search"
+            placeholder="Search for location..."
           />
         </form>
       </div>
