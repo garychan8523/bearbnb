@@ -9,10 +9,21 @@ import AddReference from "../dashboard/Admin_AddReference";
 
 class Dashboard extends Component {
   constructor() {
+    var lasturl= document.referrer;
+    console.log(document.referrer);
     super();
     this.state = {
       activeMenu: "editProfile"
     };
+
+    if (lasturl.search("homes")!=-1){
+      this.state = {
+      activeMenu: "addReview"
+      };
+      var pos = lasturl.search("homes");
+      var homeid = lasturl.substring(pos+6);
+      console.log(homeid);
+    }
   }
 
   changeMenu(newOption) {
@@ -72,7 +83,7 @@ class Dashboard extends Component {
             onClick={() => this.changeMenu("addReference")}
           >Add Reference</h4>
           )}
-          
+
           {this.state.activeMenu === "addHome" ? (
           <h4 class="nav-selected" hidden={!this.props.auth.admin}
             onClick={() => this.changeMenu("addHome")}
@@ -82,7 +93,7 @@ class Dashboard extends Component {
             onClick={() => this.changeMenu("addHome")}
           >Add Home</h4>
           )}
-          
+
           <h4>
             <a href={`/users/${this.props.auth._id}`}>View Profile</a>
           </h4>

@@ -139,7 +139,7 @@ class HomeListing extends Component {
                   })}
                 </div>
               ) : ( "There are no review yet.") }
-
+              <div><a href="../dashboard">Add Review</a></div>
                 <div id="host">
                   <HostDisplay
                     home={this.props.home}
@@ -164,5 +164,7 @@ class HomeListing extends Component {
 function mapStateToProps({ home, profile, allHomes, allReviews, allUsers }) {
   return { home, profile, allHomes, allReviews, allUsers };
 }
+
+
 
 export default connect(mapStateToProps, actions)(HomeListing);
