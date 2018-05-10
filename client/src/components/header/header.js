@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import logo from "../../stylesheets/assets/bearlogo.png";
+import logo from "../../stylesheets/assets/Eventable.png";
 import NavBarDDMenu from "../../common/navbar_dd_menu";
 import NavBarEventMenu from "../../common/navbar_event_menu";
 import NavBarSideMenu from "../../common/navbar_sidemenu";

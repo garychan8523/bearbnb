@@ -9,21 +9,21 @@ import AddReference from "../dashboard/Admin_AddReference";
 
 class Dashboard extends Component {
   constructor() {
-    var lasturl= document.referrer;
-    console.log(document.referrer);
+    //var lasturl= document.referrer;
+    //console.log(document.referrer);
     super();
     this.state = {
       activeMenu: "editProfile"
     };
 
-    if (lasturl.search("homes")!=-1){
+    /*if (lasturl.search("homes")!=-1){
       this.state = {
       activeMenu: "addReview"
       };
       var pos = lasturl.search("homes");
       var homeid = lasturl.substring(pos+6);
-      console.log(homeid);
-    }
+      console.log(homeid);*/
+    
   }
 
   changeMenu(newOption) {
