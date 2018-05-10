@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import logo from "../../stylesheets/assets/bearlogo.png";
 import NavBarDDMenu from "../../common/navbar_dd_menu";
+import NavBarEventMenu from "../../common/navbar_event_menu";
 import NavBarSideMenu from "../../common/navbar_sidemenu";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
@@ -11,6 +12,7 @@ class Header extends React.Component {
     super();
     this.state = {
       isDDMenuOpen: false,
+      isEventMenuOpen: false,
       isSideMenuOpen: false,
       windowWidth: 0,
       phone: 320,
@@ -19,9 +21,12 @@ class Header extends React.Component {
       collapsed: true
     };
     this.renderDDMenu = this.renderDDMenu.bind(this);
+    this.renderEventMenu = this.renderEventMenu.bind(this);
     this.renderSideMenu = this.renderSideMenu.bind(this);
     this.handleDDClick = this.handleDDClick.bind(this);
+    this.handleEventClick = this.handleEventClick.bind(this);
     this.handleDDOutsideClick = this.handleDDOutsideClick.bind(this);
+    this.handleEventOutsideClick = this.handleEventOutsideClick.bind(this);
     this.handleSMClick = this.handleSMClick.bind(this);
     this.handleSMOutsideClick = this.handleSMOutsideClick.bind(this);
     this.xToggle = this.xToggle.bind(this);
@@ -47,6 +52,27 @@ class Header extends React.Component {
       return;
     }
     this.handleDDClick();
+  }
+
+  handleEventClick() {
+    if (!this.state.isEventMenuOpen) {
+      // attach/remove event handler
+      document.addEventListener("click", this.handleEventOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleEventOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+      isEventMenuOpen: !prevState.isEventMenuOpen
+    }));
+  }
+
+  handleEventOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.nodeb.contains(e.target)) {
+      return;
+    }
+    this.handleEventClick();
   }
 
   handleSMClick() {
@@ -78,6 +104,14 @@ class Header extends React.Component {
     });
   }
 
+  renderEventMenu() {
+    this.setState(() => {
+      return {
+        isEventMenuOpen: !this.state.isEventMenuOpen
+      };
+    });
+  }
+
   renderSideMenu() {
     this.setState(() => {
       return {
@@ -105,10 +139,10 @@ class Header extends React.Component {
         ];
       default:
         return [
-          <a href="/dashboard" key="1" className="navbar-item">
+          <a href="/dashboard" key="3" className="navbar-item">
             Settings
           </a>,
-          <a href="/api/logout" key="2" className="navbar-item">
+          <a href="/api/logout" key="4" className="navbar-item">
             Log Out
           </a>
         ];
@@ -187,6 +221,7 @@ class Header extends React.Component {
     if (window.innerWidth <= this.state.tablet) {
       this.setState({
         isDDMenuOpen: false,
+        isEventMenuOpen: false,
         isSideMenuOpen: false,
         windowWidth: window.innerWidth
       });
@@ -237,6 +272,9 @@ class Header extends React.Component {
           <span className="navbar-item" onClick={this.handleSMClick}>
             Help
           </span>
+          <span className="navbar-item" onClick={this.handleEventClick}>
+            Event
+          </span>
           {this.renderContent()}
           {path === "/" ? "" : this.renderSearchBar("a")}
         </div>
@@ -286,6 +324,9 @@ class Header extends React.Component {
               <span className="navbar-item" onClick={this.handleSMClick}>
                 Help
               </span>
+              <span className="navbar-item" onClick={this.handleEventClick}>
+                Event
+              </span>
               {this.renderContent()}
             </div>
           )}
@@ -300,6 +341,15 @@ class Header extends React.Component {
         >
           {this.state.isDDMenuOpen && (
             <NavBarDDMenu isDDMenuOpen={this.state.isDDMenuOpen} />
+          )}
+        </div>
+        <div
+          ref={node => {
+            this.nodeb = node;
+          }}
+        >
+          {this.state.isEventMenuOpen && (
+            <NavBarEventMenu isEventMenuOpen={this.state.isEventMenuOpen} />
           )}
         </div>
         <div
