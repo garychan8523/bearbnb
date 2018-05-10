@@ -31,6 +31,7 @@ class AddReviewForm extends Component {
           type="text"
           placeholder="Host Id"
           name="hostid"
+          value = "123"
           ref={input => (this.hostid = input)}
         />
         <input
