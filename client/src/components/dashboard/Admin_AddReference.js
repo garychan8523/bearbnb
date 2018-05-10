@@ -19,6 +19,8 @@ class AddReferenceForm extends Component {
       }
     };
     this.props.newReference(reference);
+    alert("Reference Added!");
+    window.location.href = "../";
   }
   render() {
     return (

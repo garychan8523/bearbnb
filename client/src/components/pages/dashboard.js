@@ -23,7 +23,7 @@ class Dashboard extends Component {
       var pos = lasturl.search("homes");
       var homeid = lasturl.substring(pos+6);
       console.log(homeid);*/
-    
+
   }
 
   changeMenu(newOption) {
@@ -43,7 +43,7 @@ class Dashboard extends Component {
       return <AddReview />;
     } else if (this.state.activeMenu === "addReference") {
       return <AddReference />;
-    } else if (this.state.activeMenu === "addHome") {
+    } else if (this.state.activeMenu === "addEvent") {
       return <AddHome />;
     }
   }
@@ -86,12 +86,12 @@ class Dashboard extends Component {
 
           {this.state.activeMenu === "addHome" ? (
           <h4 class="nav-selected" hidden={!this.props.auth.admin}
-            onClick={() => this.changeMenu("addHome")}
-          >Add Home</h4>
+            onClick={() => this.changeMenu("addEvent")}
+          >Add Event</h4>
           ) : (
           <h4 hidden={!this.props.auth.admin}
-            onClick={() => this.changeMenu("addHome")}
-          >Add Home</h4>
+            onClick={() => this.changeMenu("addEvent")}
+          >Add Event</h4>
           )}
 
           <h4>

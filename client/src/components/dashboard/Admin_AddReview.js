@@ -19,6 +19,8 @@ class AddReviewForm extends Component {
       }
     };
     this.props.newReview(review);
+    alert("Review Added!");
+    window.location.href = "../";
   }
   render() {
     return (
