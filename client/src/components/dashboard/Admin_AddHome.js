@@ -8,7 +8,7 @@ class AddHomeForm extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const home = {
-      hostid: this.hostid.value,
+      hostid: this.props.auth._id,
       homelocation: {
         address: this.address.value,
         city: this.city.value,
@@ -46,14 +46,7 @@ class AddHomeForm extends Component {
         onSubmit={e => this.handleOnSubmit(e)}
       >
       <h4>Location Information</h4>
-        <input
-          type="text"
-          placeholder="Host Id"
-          name="hostid"
-          required
-          ref={input => (this.hostid = input)}
-        />
-        <input
+       <input
           type="text"
           placeholder="Address"
           name="address"
@@ -170,8 +163,8 @@ class AddHomeForm extends Component {
   }
 }
 
-function mapStateToProps({ home }) {
-  return { home };
+function mapStateToProps({ home,auth }) {
+  return { home,auth };
 }
 
 export default connect(mapStateToProps, actions)(AddHomeForm);
