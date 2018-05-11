@@ -17,7 +17,8 @@ class bookingComponent extends Component {
       collapsed: true,
       bookToggle: "toggleFalse",
       bookedDays: [],
-      reserved: false
+      reserved: false,
+      displayReserve: false
     };
   }
 
@@ -107,15 +108,23 @@ class bookingComponent extends Component {
   render() {
     let homeid = this.props.data.id;
     let userRecord = this.props.auth.bookedHomes;
-    this.state.reserved = userRecord.indexOf(homeid);
+    if(this.props.auth){
+      this.state.reserved = userRecord.indexOf(homeid);
+      this.state.displayReserve = true;
+    }
     if(this.state.reserved != -1){
       this.state.reserved = true;
     } else {
       this.state.reserved = false;
     }
+
     return (
-      <div className="bookingContainer">
-        <div className="bookingContent">
+
+      
+        <div className="bookingContainer">
+        {this.state.displayReserve ? ( 
+          <div className="bookingContent">
+          
           <div className="headerPrice">
             Join the event now.
           </div>
@@ -141,8 +150,9 @@ class bookingComponent extends Component {
             </div>
 
           </div>
+          ) : ""}
         </div>
-
+        
     );
   }
 }
