@@ -56,6 +56,7 @@ class Profile extends Component {
               this.props.profile.references.length > 0 ? (
                 <div className="review-list">
                   <h2>Personal References ({this.props.profile.references.length})</h2>
+                    <div><a href="../dashboard">Add Reference</a></div>
                   {Object.keys(this.props.profile.references).map(key => {
                     return (
                       <Reference
