@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const reviewSchema = new Schema({
-  hostid: String,
+  homeid: String,
   reviewid: Number,
   reviewdate: Number,
   stars: Number, // Out of 5 stars

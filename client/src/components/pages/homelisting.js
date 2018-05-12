@@ -40,6 +40,7 @@ class HomeListing extends Component {
   }
 
   populateListings() {
+
     if (!!this.props.allHomes) {
       const allHomes = Object.values(this.props.allHomes);
       const l = allHomes.length;

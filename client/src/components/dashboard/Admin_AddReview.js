@@ -8,7 +8,7 @@ class AddReviewForm extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const review = {
-      hostid: this.hostid.value,
+      homeid: this.hostid.value,
       stars: this.stars.value,
       content: this.content.value,
       firstName: this.firstName.value,
@@ -31,10 +31,10 @@ class AddReviewForm extends Component {
       >
         <input
           type="text"
-          placeholder="Host Id"
-          name="hostid"
+          placeholder="Home Id"
+          name="homeid"
           required
-          ref={input => (this.hostid = input)}
+          ref={input => (this.homeid = input)}
         />
         <input
           type="text"

@@ -20,6 +20,7 @@ module.exports = app => {
         homeids: user.homeids,
         reviews: user.reviews,
         references: user.references,
+        booked: user.bookedHomes,
         intro: user.intro,
         image: user.image
       });

@@ -5,6 +5,7 @@ import ProfileLeftbox from "../profile/profile_leftbox";
 import ProfileOverview from "../profile/profile_overview";
 import Review from "../../common/review";
 import Reference from "../../common/reference";
+import Booked from "../../common/booked";
 
 class Profile extends Component {
   async componentWillMount() {
@@ -17,6 +18,7 @@ class Profile extends Component {
 
   render() {
     const user = this.props.match.params.user;
+    //console.log(this.props.profile);
     if (!!this.props.profile === false) {
       return null;
     } else {
@@ -66,6 +68,28 @@ class Profile extends Component {
               ) : (
                 ""
               )}
+
+
+              {this.props.profile.booked &&
+              this.props.profile.booked.length > 0 ? (
+                <div className="review-list">
+                  <h2>Reserved Events ({this.props.profile.booked.length})</h2>
+
+                  {Object.keys(this.props.profile.references).map(key => {
+                    return (
+                      <Booked
+                        key={key}
+                        bookedId={this.props.profile.booked[key]}
+                      />
+                    );
+                  })}
+
+                </div>
+              ) : (
+                ""
+              )}
+
+
             </div>
           </div>
         </div>
