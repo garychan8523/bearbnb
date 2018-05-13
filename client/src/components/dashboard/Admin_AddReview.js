@@ -8,7 +8,7 @@ class AddReviewForm extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const review = {
-      homeid: this.hostid.value,
+      homeid: this.homeid.value,
       stars: this.stars.value,
       content: this.content.value,
       firstName: this.firstName.value,

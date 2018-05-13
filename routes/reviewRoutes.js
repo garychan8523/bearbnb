@@ -22,7 +22,7 @@ module.exports = app => {
     Review.findById(req.params.id, (err, review) => {
       res.send({
         id: review.id,
-        hostid: review.hostid,
+        homeid: review.homeid,
         reviewdate: review.reviewdate,
         stars: review.stars,
         content: review.content,
@@ -43,7 +43,7 @@ module.exports = app => {
         res.status(500).send(err);
       } else {
         review.id = req.body.id;
-        review.hostid = req.body.hostid;
+        review.homeid = req.body.homeid;
         review.reviewdate = req.body.reviewdate;
         review.stars = req.body.stars || review.stars;
         review.content = req.body.content || review.content;
@@ -68,7 +68,7 @@ module.exports = app => {
     const datetime = new Date();
     const reviewdate = formatDate(datetime);
     const review = new Review({
-      hostid: req.body.hostid,
+      homeid: req.body.homeid,
       reviewdate: reviewdate,
       stars: req.body.stars,
       content: req.body.content,

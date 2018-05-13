@@ -73,6 +73,7 @@ class HomeListing extends Component {
   }
 
   render() {
+    var haveReview = false;
     if (
       !this.props.home ||
       !this.props.profile ||
@@ -104,19 +105,12 @@ class HomeListing extends Component {
                 <HomeOverview homes={this.props.home} />
                 {(this.props.profile.reviews.length>0) ? (
                 <div className="review-list" id="reviews">
-                  <div className="review-list-header">
-                    <LargeReviewStars
-                      overview_id={this.props.home._id}
-                      reviewCount={this.props.home.reviewAvg.avg}
-                      size="1"
-                    /> {"  "} from {this.props.profile.reviews.length} Reviews for this event :
-                  </div>
-
-                  {Object.keys(this.props.profile.reviews).map(key => {
-                    let reviewNum = this.props.profile.reviews[key];
-                    let review = this.props.allReviews[reviewNum];
+                  {Object.keys(this.props.allReviews).map(key => {
+                    let review = this.props.allReviews[key];
                     let reviewerNum = review.reviewerId;
                     let reviewer = this.props.allUsers[reviewerNum];
+                    if(review.homeid===this.props.home.id && review.homeid!=undefined){
+                    haveReview = true;
                     return (
                       <div className="indreview" key={key}>
                         <div className="review-header">
@@ -137,9 +131,12 @@ class HomeListing extends Component {
                         <div className="divider" />
                       </div>
                     );
+                  }
                   })}
                 </div>
-              ) : ( "There are no review yet.") }
+              ) : ( "") }
+              {haveReview==false?
+                ( "There are no review yet."):("")}
               <div><a href="../dashboard">Add Review</a></div>
                 <div id="host">
                   <HostDisplay
@@ -161,6 +158,16 @@ class HomeListing extends Component {
     }
   }
 }
+
+// star system disabled
+//                  <div className="review-list-header">
+//                    <LargeReviewStars
+//                      overview_id={this.props.home._id}
+//                      reviewCount={this.props.home.reviewAvg.avg}
+//                      size="1"
+//                    /> {"  "} from {this.props.profile.reviews.length} Reviews for this event :
+//                  </div>
+
 
 function mapStateToProps({ home, profile, allHomes, allReviews, allUsers }) {
   return { home, profile, allHomes, allReviews, allUsers };
