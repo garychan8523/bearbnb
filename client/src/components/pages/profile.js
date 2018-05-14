@@ -76,7 +76,7 @@ class Profile extends Component {
                 <div className="review-list">
                   <h2>Reserved Events ({this.props.profile.booked.length})</h2>
 
-                  {Object.keys(this.props.profile.references).map(key => {
+                  {Object.keys(this.props.profile.booked).map(key => {
                     return (
                       <Booked
                         key={key}

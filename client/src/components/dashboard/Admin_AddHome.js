@@ -8,7 +8,6 @@ import ChooseLocation from "../homelisting/chooseLocation";
 class AddHomeForm extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
-    console.log(this.coords.value);
     var coord = this.coords.value.split(",");
     const home = {
       hostid: this.props.auth._id,
