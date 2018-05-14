@@ -70,7 +70,7 @@ class SearchGallery extends Component {
             indhome.homeinformation.price <= price.max &&
             indhome.homeinformation.guestlimit >= guests
           ) {
-            searchData.push(indhome);
+              searchData.push(indhome);
           }
         }
       }

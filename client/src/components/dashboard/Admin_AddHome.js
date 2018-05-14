@@ -136,27 +136,6 @@ class AddHomeForm extends Component {
           ref={input => (this.images = input)}
         />
 
-        <h4>Review Averages - Dummy Data for now</h4>
-
-        <input
-          type="text"
-          placeholder="Star Average"
-          name="avg"
-          ref={input => (this.avg = input)}
-        />
-        <input
-          type="text"
-          placeholder="Review Ids - Separate by Commas (,)"
-          name="reviews"
-          ref={input => (this.reviews = input)}
-        />
-        <input
-          type="text"
-          placeholder="Booking Ids - Separate by Commas (,)"
-          name="booking"
-          ref={input => (this.booking = input)}
-        />
-
         <input type="submit" />
       </form>
     );

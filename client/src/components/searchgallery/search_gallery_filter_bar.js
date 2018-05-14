@@ -9,7 +9,8 @@ export default class SearchGalleryFilterBar extends React.Component {
       guests: {
         guests: 1
       },
-      price: 0
+      price: 0,
+      startTime: []
     }
   };
 
@@ -72,6 +73,9 @@ export default class SearchGalleryFilterBar extends React.Component {
             toggleComponent={this.toggleComponent.bind(this)}
             activeComponent={this.state.activeComponent}
           />
+          <button class="filter-btn filter-btn-mobile-hide" onClick={() => {
+            this.updateFilter("startTime", [0 , 2526301869]);
+          }}>Next week</button>
         </div>
         <div
           className={this.state.overlay ? "filter-overlay" : ""}

@@ -33,7 +33,7 @@ class MapB extends Component {
       definePopupClass();
       map = new window.google.maps.Map(this.refs.map, {
         center: { lat: 0, lng: 0 },
-        zoom: 11,
+        zoom: 14,
         minZoom: 2,
         maxZoom: 18,
         fullscreenControl: false,
@@ -103,7 +103,7 @@ class MapB extends Component {
           position: homeCoordinates,
           label: {
             fontWeight: "700",
-            fontSize: "16px",
+            fontSize: "12px",
             text: "$" + home.homeinformation.price
           },
           icon: icon,
