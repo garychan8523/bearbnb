@@ -3,10 +3,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import ChooseLocation from "../homelisting/chooseLocation";
 
 class AddHomeForm extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
+    var coord = this.coords.value.split(",");
     const home = {
       hostid: this.props.auth._id,
       homelocation: {
@@ -14,8 +16,8 @@ class AddHomeForm extends Component {
         city: this.city.value,
         state: this.usstate.value,
         zipcode: this.zipcode.value,
-        lat: this.lat.value,
-        lng: this.lng.value
+        lat: coord[0],
+        lng: coord[1]
       },
       homeinformation: {
         title: this.title.value,
@@ -39,7 +41,16 @@ class AddHomeForm extends Component {
   }
 
   render() {
+    const coords = {
+      lat: 22.290922,
+      lng: 114.176237
+    };
+
     return (
+      <div>
+      <div className="googleMap">
+        <ChooseLocation coords={coords} />
+      </div>
       <form
         className="add-review-form"
         ref={input => (this.addHomeForm = input)}
@@ -74,17 +85,10 @@ class AddHomeForm extends Component {
         />
         <input
           type="text"
-          placeholder="Latitude"
-          name="lat"
+          placeholder="Coordinate (Paste from clipboard)"
+          name="coords"
           required
-          ref={input => (this.lat = input)}
-        />
-        <input
-          type="text"
-          placeholder="Longitude"
-          name="lng"
-          required
-          ref={input => (this.lng = input)}
+          ref={input => (this.coords = input)}
         />
         <h4>Event Details</h4>
         <input
@@ -138,6 +142,7 @@ class AddHomeForm extends Component {
 
         <input type="submit" />
       </form>
+      </div>
     );
   }
 }
