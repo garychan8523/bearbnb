@@ -12,6 +12,7 @@ class Dashboard extends Component {
     //var lasturl= document.referrer;
     //console.log(document.referrer);
     super();
+
     this.state = {
       activeMenu: "editProfile"
     };
@@ -23,7 +24,11 @@ class Dashboard extends Component {
       var pos = lasturl.search("homes");
       var homeid = lasturl.substring(pos+6);
       console.log(homeid);*/
-
+      this.state.location = window.location.href;
+      this.state.redirect = this.state.location.split('#')[1];
+      if(this.state.redirect == "addEvent" || this.state.redirect == "changePhoto" || this.state.redirect == "addReview" || this.state.redirect == "addReference" || this.state.redirect == "addEvent"){
+        this.state.activeMenu = this.state.redirect;
+      }
   }
 
   changeMenu(newOption) {
@@ -84,7 +89,7 @@ class Dashboard extends Component {
           >Add Reference</h4>
           )}
 
-          {this.state.activeMenu === "addHome" ? (
+          {this.state.activeMenu === "addEvent" ? (
           <h4 class="nav-selected" hidden={!this.props.auth.admin}
             onClick={() => this.changeMenu("addEvent")}
           >Add Event</h4>

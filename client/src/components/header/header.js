@@ -139,9 +139,15 @@ class Header extends React.Component {
         ];
       default:
         return [
+          <a href="/dashboard#addEvent" key="3" className="navbar-item">
+            Add event
+          </a>,
           <a href="/dashboard" key="3" className="navbar-item">
             Settings
           </a>,
+          <span className="navbar-item" onClick={this.handleSMClick}>
+            Help
+          </span>,
           <a href="/api/logout" key="4" className="navbar-item">
             Log Out
           </a>
@@ -266,15 +272,6 @@ class Header extends React.Component {
               : "navbar-mobile-menu"
           }
         >
-          <span className="navbar-item" onClick={this.handleDDClick}>
-            Become a host
-          </span>
-          <span className="navbar-item" onClick={this.handleSMClick}>
-            Help
-          </span>
-          <span className="navbar-item" onClick={this.handleEventClick}>
-            Event
-          </span>
           {this.renderContent()}
           {path === "/" ? "" : this.renderSearchBar("a")}
         </div>
@@ -305,6 +302,8 @@ class Header extends React.Component {
     } else {
       renderSearch = "";
     }
+    this.authdata = JSON.stringify(this.props.auth);
+    this.authid = this.authdata.slice(8, 32);
     return (
       <header className={"navHeader" + headerClass}>
         <div className="navbar">
@@ -318,15 +317,7 @@ class Header extends React.Component {
             this.renderHamburger()
           ) : (
             <div className="navbar-right">
-              <span className="navbar-item" onClick={this.handleDDClick}>
-                Become a host
-              </span>
-              <span className="navbar-item" onClick={this.handleSMClick}>
-                Help
-              </span>
-              <span className="navbar-item" onClick={this.handleEventClick}>
-                Event
-              </span>
+            <a href={'/users/' + this.authid} className="navbar-item">My event</a>
               {this.renderContent()}
             </div>
           )}
